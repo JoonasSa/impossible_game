@@ -1,0 +1,9 @@
+#Aihe
+Impossible game tyylinen peli, jossa pelaaja yrittää selviytyä mahdollisimman kauan vaikeutason kasvaessa.
+Pelissä on high-score -lista johon tallennetaan parhaimmat suoritukset.
+[Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
+
+#Pelaaja
+Pelaaja kontrolloi hahmoaan hyppimällä.
+Tarkoituksena on päästä pelin jokainen kenttä lävitse.
+
