@@ -8,9 +8,13 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 Pelaaja kontrolloi hahmoaan hyppimällä.
 Tarkoituksena on päästä pelin jokainen kenttä lävitse.
 
+#Valikko
+Pelissä on valikko josta voi valita mitä kenttää haluaa pelata.
+
 #Kentät
 Pelissä on erilaisia kenttiä, jotka kaikki poikkeavat toisistaan.
 Kentät sisältävät alustan jolla pelaaja matkaa, sekä esteet joita pelaajan tulee vältellä.
 
 #Jatkokehitys ideoita
-* Endless mode - Peli joka jatkuu kunnes pelaaja kuolee
+* Endless mode - Peli, joka jatkuu kunnes pelaaja kuolee
+  * Valikkoon pitää lisätä pelimuodon valinta   
