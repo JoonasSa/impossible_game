@@ -5,8 +5,10 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 [Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
 
 #Pelaaja
-Pelaaja kontrolloi hahmoaan hyppimällä.
-Tarkoituksena on päästä pelin jokainen kenttä lävitse.
+* toiminnot
+ * Pelaaja kontrolloi hahmoaan hyppimällä.
+* tavoite
+ * Tarkoituksena on päästä pelin jokainen kenttä lävitse.
 
 #Valikko
 Pelissä on valikko josta voi valita mitä kenttää haluaa pelata.
