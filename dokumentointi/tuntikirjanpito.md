@@ -1,2 +1,4 @@
-*to 21.1.2016 - (2h)* 
+#*to 21.1.2016 - (2h)* 
 Tein ensimmäisen viikon tehtävät: Loin repon GitHubiin, loin Maven NetBeans -projektin ja asensin Pitin. Sain Githubin ja paikallisten tiedostojen yhteyden toimimaan. Loin aihemäärittelyn ja tuntikirjanpidon. 
+#*ke 27.1.2016 - (5h)*
+Ohjelma ei ole vielä ajettavassa muodossa, mutta osa ohjelma logiikasta on jo valmiina. Loin ohjelmiston rungon, joka koostuu peliloopista ja kutsuu kontrolleri luokkia päivittämään peliä, joka kierroksella. Grafiikka kontrolleri ja näppäimistön kuuntelija eivät ole vielä toiminnassa, joten peliä ei voi vielä pelata. Loin myös ruudulla olevien toimijoiden kontrolloijan ja näiden toimijoiden logiikkaa. Uskon että pelaaja ja alustat toimivat nyt lähes kuten pitää. Tein myös ison kasan testejä toimija (actor) luokille ja joitain myös kontrolliluokille.
