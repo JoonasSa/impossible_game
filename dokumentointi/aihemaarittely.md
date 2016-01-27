@@ -9,13 +9,14 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 * Pelaaja
 
 #Käyttäjän toiminnot
-* Toiminnot
+* Toiminnot valikossa
  * Pelaaja valitsee pelimuodon
  * Pelaaja avaa high score -listan
  * Pelaaja aloittaa uuden pelin
+* Toiminnot pelissä
   * Pelaaja kontrolloi hahmoaan hyppimällä, ja pyrkii pysymään hengissä mahdollisimman kauan
   * Pelaaja ei pysty liikkumaan sivuittain
-* Tavoite
+* Käyttäjän tavoite
  * Tarkoituksena on päästä pelin jokainen kenttä lävitse
  * Saada uusi high score
 
