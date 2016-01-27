@@ -1,14 +1,23 @@
 #Aihe
 Impossible game tyylinen peli, jossa pelaaja yrittää selviytyä mahdollisimman kauan vaikeustason kasvaessa.
+Pelissä pelaaja ei pysty liikkumaan sivuttain, vaan kenttä ikäänkuin rullaa pelaaja päin oikealta vasemmalle.
 Pelissä on high score -lista johon tallennetaan parhaimmat suoritukset, score säilyy kentästä toiseen 
 ja nollaantuu vain pelaajan kuollessa. :trophy:
 [Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
 
-#Pelaaja
-* toiminnot
- * Pelaaja kontrolloi hahmoaan hyppimällä.
-* tavoite
- * Tarkoituksena on päästä pelin jokainen kenttä lävitse.
+#Käyttäjät: 
+* Pelaaja
+
+#Käyttäjän toiminnot
+* Toiminnot
+ * Pelaaja valitsee pelimuodon
+ * Pelaaja avaa high score -listan
+ * Pelaaja aloittaa uuden pelin
+  * Pelaaja kontrolloi hahmoaan hyppimällä, ja pyrkii pysymään hengissä mahdollisimman kauan
+  * Pelaaja ei pysty liikkumaan sivuittain
+* Tavoite
+ * Tarkoituksena on päästä pelin jokainen kenttä lävitse
+ * Saada uusi high score
 
 #Valikko
 Pelissä on valikko josta voi valita mitä kenttää haluaa pelata.
@@ -19,4 +28,7 @@ Kentät sisältävät alustan jolla pelaaja matkaa, sekä esteet joita pelaajan 
 
 #Jatkokehitys ideoita
 * Endless mode - Peli, joka jatkuu kunnes pelaaja kuolee
-  * Valikkoon pitää lisätä pelimuodon valinta   
+  * Valikkoon pitää lisätä pelimuodon valinta
+* No gravity mode - Pelissä ei ole pelaajan vaikuttavaa painovoimaa
+  * Pelin luonne muuttuu kun pelaaja ei kontrolloikaan hahmoaan vain hyppimällä
+* Boundless mode - Peli, jossa pelaaja kykenee liikkumaan myös sivuittain
