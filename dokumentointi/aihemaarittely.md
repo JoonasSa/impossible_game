@@ -21,7 +21,9 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
  * Saada uusi high score
 
 #Valikko
-Pelissä on valikko josta voi valita mitä kenttää haluaa pelata.
+* Valikosta voi valita mitä kenttää haluaa pelata.
+* Valikosta pääsee selamaan high score -listaa.
+* Uudet pelimuodot ilmestyvät valikkoon jahka niitä tulee lisää
 
 #Kentät
 Pelissä on erilaisia kenttiä, jotka kaikki poikkeavat toisistaan.
