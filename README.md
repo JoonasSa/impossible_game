@@ -4,6 +4,6 @@ Javalla toteutettu [Impossible game tyylinen peli](http://impossiblegame.org/the
 
 #Dokumentaatio
 
-[aiheen kuvaus](dokumentaatio/aiheenKuvausJaMääritelmä.md)
+[aiheen kuvaus](dokumentointi/aiheenKuvausJaMääritelmä.md)
 
-[tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+[tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
