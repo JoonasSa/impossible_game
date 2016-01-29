@@ -6,7 +6,7 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 [Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
 
 #Ohjelman rakenne
-![Määrittelyvaiheen luokkakaavio](/kaaviot/mv_luokkakaavio.png)
+![Määrittelyvaiheen luokkakaavio](impossible_game/dokumentointi/kaaviot/mv_luokkakaavio.png)
 
 #Käyttäjät: 
 * Pelaaja
