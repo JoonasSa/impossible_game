@@ -1,9 +1,8 @@
-impossible_game
-#Javalabra 2016 - Impossible Game
+#impossible_game - Javalabra 2016
 
-#Aihe
-Impossible game tyylinen peli, jossa pelaaja yrittää selviytyä mahdollisimman kauan samalla kun vaikeustaso kasvaa.
-http://impossiblegame.org/the-impossible-game/
+Javalla toteutettu [Impossible game tyylinen peli](http://impossiblegame.org/the-impossible-game/), jossa pelaaja yrittää selviytyä mahdollisimman kauan vaikeustason kasvaessa.
 
-#Pelaaja
-Tarkoituksena on päästä pelin jokainen kenttä lävitse. Pelaaja kontrolloi hahmoaan vain hyppimällä.
+#Dokumentaatio
+
+[aiheen kuvaus](dokumentaatio/aiheenKuvausJaMääritelmä.md)
+[tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
