@@ -34,7 +34,7 @@ public class ActorController {
         return objects;
     }
 
-    public Actor getPlayer() {
+    public Player getPlayer() {
         return player;
     }
 
@@ -44,5 +44,11 @@ public class ActorController {
     
     public void updatePlayerDown(int amount) {
         player.moveDown(amount);
+    }
+    
+    public void restart() {
+        player.setX(100);
+        player.setY(300);
+        this.objects = new ArrayList<>();
     }
 }

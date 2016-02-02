@@ -1,11 +1,13 @@
 package fi.joonassa.impossiblegameproject;
 
-import fi.joonassa.impossiblegameproject.gamemain.GameMain;
+import fi.joonassa.impossiblegameproject.gui.GameFrame;
+import javax.swing.SwingUtilities;
 
 public class Main {
 
     public static void main(String[] args) {
-        GameMain game = new GameMain();
-        game.startGame();
+        GameFrame frame = new GameFrame();
+        SwingUtilities.invokeLater(frame);
+        frame.startGame();
     }
 }
