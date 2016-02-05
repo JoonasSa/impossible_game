@@ -31,6 +31,13 @@ public class ActorTest {
         actor = new Actor(0, -1);
         assertEquals(0, actor.getY());
     }
+    
+    @Test
+    public void newActorNegativeXYTest() {
+        actor = new Actor(-1, -1);
+        assertEquals(0, actor.getX());
+        assertEquals(0, actor.getY());
+    }
 
     //get & set-testit ovat tällä hetkellä hiukan turhia, mutta tulevaisuudessa 
     //niillä varmistetaan etteivät Actorit pääse ulos pelialueelta
@@ -68,6 +75,18 @@ public class ActorTest {
         assertEquals(0, actor.getY());
     }
     
+    @Test 
+    public void actorSetNollaYTest() {
+        actor.setY(0);
+        assertEquals(0, actor.getY());
+    }
+    
+    @Test 
+    public void actorSetNollaXTest() {
+        actor.setX(0);
+        assertEquals(0, actor.getX());
+    }
+    
     @Test
     public void moveLeftTest() {
         actor = new Actor(15, 0);
@@ -81,20 +100,10 @@ public class ActorTest {
         assertEquals(0, actor.getX());
     }
     
-    /*
     @Test
-    public void isPositiveFalseTest() {
-        assertFalse(actor.isPositive(-1));
+    public void moveLeftNollaTest() {
+        actor = new Actor(15, 0);
+        actor.moveLeft(0);
+        assertEquals(15, actor.getX());
     }
-    
-    @Test
-    public void isPositiveTrueTest() {
-        assertTrue(actor.isPositive(0));
-    }
-    
-    @Test
-    public void isPositiveTrueTestTwo() {
-        assertTrue(actor.isPositive(1));
-    }
-    */
 } 

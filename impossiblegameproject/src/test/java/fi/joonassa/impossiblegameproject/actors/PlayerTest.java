@@ -39,9 +39,21 @@ public class PlayerTest {
     }
     
     @Test
+    public void playerSetXNollaTest() {
+        player.setX(0);
+        assertEquals(0, player.getX());
+    }
+    
+    @Test
     public void playerSetYTest() {
         player.setY(5);
         assertEquals(5, player.getY());
+    } 
+    
+    @Test
+    public void playerSetYNollaTest() {
+        player.setY(0);
+        assertEquals(0, player.getY());
     }
 
     @Test 
@@ -81,20 +93,15 @@ public class PlayerTest {
         assertEquals(0, player.getY());
     }
 
-    /*
     @Test
-    public void isPositiveFalseTest() {
-        assertFalse(player.isPositive(-1));
+    public void newPlayerNegativeX() {
+        Player x = new Player(-1,1);
+        assertEquals(0, x.getX());
     }
     
     @Test
-    public void isPositiveTrueTest() {
-        assertTrue(player.isPositive(0));
+    public void newPlayerNegativeY() {
+        Player x = new Player(1,-1);
+        assertEquals(0, x.getY());
     }
-    
-    @Test
-    public void isPositiveTrueTestTwo() {
-        assertTrue(player.isPositive(1));
-    }
-    */
 }

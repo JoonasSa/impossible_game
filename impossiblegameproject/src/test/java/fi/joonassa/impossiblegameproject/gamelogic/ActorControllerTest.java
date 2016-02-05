@@ -66,9 +66,40 @@ public class ActorControllerTest {
     }
     
     @Test
+    public void updatePlayerUpZeroTest() {
+        controller.updatePlayerUp(0);
+        assertEquals(0, controller.getPlayer().getY());
+    }
+    
+    @Test
     public void updatePlayerDownTest() {
         controller.addPlayer(0, 10);
         controller.updatePlayerDown(10);
         assertEquals(0, controller.getPlayer().getY());
+    }
+    
+    @Test
+    public void updatePlayerDownZeroTest() {
+        controller.addPlayer(0, 10);
+        controller.updatePlayerDown(0);
+        assertEquals(10, controller.getPlayer().getY());
+    }
+    
+    @Test
+    public void restartPlayerXTest() {
+        controller.restart();
+        assertEquals(100, controller.getPlayer().getX());
+    }
+    
+    @Test
+    public void restartPlayerYTest() {
+        controller.restart();
+        assertEquals(300, controller.getPlayer().getY());
+    }
+    
+        @Test
+    public void restartObjectsTest() {
+        controller.restart();
+        assertEquals(0, controller.getObjects().size());
     }
 }
