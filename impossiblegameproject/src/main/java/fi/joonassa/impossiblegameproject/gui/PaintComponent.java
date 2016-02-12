@@ -9,39 +9,38 @@ import java.awt.RenderingHints;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
+/**
+ * Tuottaa ikkunan sisällön. Eli siis pelin elementit ja tapahtumat.
+ * @author sarapajo
+ */
 public class PaintComponent extends JPanel {
 
     private ArrayList<Actor> actors = null;
     private Player player = null;
-
-    public PaintComponent() {
-        //todennäköisesti aivan turhaa
-        //setFocusable(true);  // so that this can receive key-events
-        //requestFocus();
-        //setBackground(Color.WHITE);
-    }
 
     public void setActors(ArrayList<Actor> l, Player p) {
         actors = l;
         player = p;
     }
 
-    // Kutsutaan uudestaan: repaint().
+    /**
+     * Kutsuu yläluokkansa metodia repaint() ja renderöi ruudun sisällön uudestaan.
+     * @param g 
+     */
     @Override
     public void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;  // if using Java 2D
-        super.paintComponent(g2d);       // paint background
-        setBackground(Color.BLACK);      // may use an image for background
+        Graphics2D g2d = (Graphics2D) g;    // Java 2D
+        super.paintComponent(g2d);        
+        setBackground(Color.BLACK);         // background
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.WHITE);
-        g2d.fillOval(0, 0, 30, 30);
         if (actors != null) {
             for (Actor x : actors) {
-                g2d.fillRect(x.getX(), x.getY(), 50, 15);
+                g2d.fillRect(x.getX(), x.getY(), 100, 25);
             }
         }
         if (player != null) {
-            g2d.fillOval(player.getX(), player.getY(), 40, 40);
+            g2d.fillRect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
         }
 
     }

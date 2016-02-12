@@ -3,78 +3,83 @@ package fi.joonassa.impossiblegameproject.gamemain;
 import fi.joonassa.impossiblegameproject.actors.Player;
 import fi.joonassa.impossiblegameproject.gamelogic.ActorController;
 import fi.joonassa.impossiblegameproject.gui.PaintComponent;
-import fi.joonassa.impossiblegameproject.listener.GameListener;
+import java.util.Random;
 import javax.swing.JPanel;
-
+/**
+ * Luokka pyörittää pelilooppia ja kutsuu muita pelin komponentteja. 
+ */
 public class GameMain extends JPanel {
 
     private boolean gameOver;
     private boolean gamePaused;
-    private GameListener gameListener;
     private ActorController actorController;
     private PaintComponent paintComponent;
-    public static int WIDTH;
-    public static int HEIGHT;
+    private Random random;
+    /**
+     * Pelialueen mitat.
+     */
+    public static int width;
+    public static int height;
 
     public static int kierros = 0;
-    
-    public GameMain(int width, int height) {
-        this.WIDTH = width;
-        this.HEIGHT = height;
-        actorController = new ActorController();
-    }
 
+    public GameMain(int width, int height) {
+        this.width = width;
+        this.height = height;
+        actorController = new ActorController();
+        paintComponent = new PaintComponent();
+    }
+    
+    /**
+     * Käynnistää pääohjelman ja on peliloop. Tämä metodi pyörii kokoajan pelinalustamisen jälkeen.
+     * @see gui.paintComponent#repaint();
+     */
     public void startGame() {
         initialize();
-        
         while (!gameOver) {
             restart();
             while (!gamePaused) {
                 gameUpdate();
                 paintComponent.repaint();
-                /*
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(10);
                 } catch (Exception e) {
                     System.out.println("Problem with Thread.sleep");
                 }
-                */
             }
         }
     }
 
-    public void gameUpdate() {
-        //siirrä kierros logiikka actorControllerille
-        if (kierros == 1000) {
-            actorController.addObject(200);
-        }
-        actorController.updateObjects();
-        paintComponent.setActors(actorController.getObjects(), actorController.getPlayer());
-        if (kierros < 1001) {
-            kierros++;
-        } else {
+    private void gameUpdate() {
+        //siirrä kierros logiikkaa actorControllerille
+        if (kierros == 200) {
+            actorController.addObjectWithRandom(random.nextInt(3));
             kierros = 0;
         }
-        
+        actorController.updateObjects();
+        actorController.updatePlayer(actorController.collisionTest());
+        paintComponent.setActors(actorController.getObjects(), actorController.getPlayer());
+        kierros++;
     }
 
-    public void initialize() {
+    private void initialize() {
         gameOver = false;
     }
 
-    public void restart() {
+    private void restart() {
         actorController.restart();
         gamePaused = false;
+        random = new Random();
     }
 
-    public void gameShutdown() {
+    private void gameShutdown() {
     }
 
     public Player getPlayer() {
         return actorController.getPlayer();
     }
 
-    public void setPaintComponent(PaintComponent p) {
-        this.paintComponent = p;
+    public PaintComponent getPaintComponent() {
+        return paintComponent;
     }
 }

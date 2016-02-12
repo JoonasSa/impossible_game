@@ -17,7 +17,7 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
-        player = new Player(0, 0);
+        player = new Player(0, 0, 0, 0);
     }
     
     //get & set-testit ovat tällä hetkellä hiukan turhia, mutta tulevaisuudessa 
@@ -70,8 +70,9 @@ public class PlayerTest {
         
     @Test
     public void moveUpTest() {
+        player = new Player(0, 10, 0, 0);
         player.moveUp(10);
-        assertEquals(10, player.getY());
+        assertEquals(0, player.getY());
     }
     
     @Test
@@ -82,9 +83,9 @@ public class PlayerTest {
     
     @Test
     public void moveDownTest() {
-        player = new Player(0, 15);
+        player = new Player(0, 15, 0, 0);
         player.moveDown(10);
-        assertEquals(5, player.getY());
+        assertEquals(25, player.getY());
     }
     
     @Test
@@ -95,13 +96,13 @@ public class PlayerTest {
 
     @Test
     public void newPlayerNegativeX() {
-        Player x = new Player(-1,1);
+        Player x = new Player(-1,1, 0, 0);
         assertEquals(0, x.getX());
     }
     
     @Test
     public void newPlayerNegativeY() {
-        Player x = new Player(1,-1);
+        Player x = new Player(1,-1, 0, 0);
         assertEquals(0, x.getY());
     }
 }

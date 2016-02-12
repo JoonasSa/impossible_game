@@ -7,37 +7,44 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+/**
+ * Luokka luo pelin ikkunan ja hoitaa renderoimista.
+ */
 public class GameFrame implements Runnable {
-    
-    JFrame frame;
-    GameMain game;
 
+    private JFrame frame;
+    private GameMain game;
+
+    public GameFrame(GameMain main) {
+        game = main;
+    }
+
+    /**
+     * Metodi luo ikkunan ja paketoi sen sisällön.
+     */
     @Override
     public void run() {
-        game = new GameMain(800, 600);
         frame = new JFrame("Impossible Game");
         frame.setPreferredSize(new Dimension(800, 600));
         createComponents(frame.getContentPane());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.pack();
-        frame.setLocationRelativeTo(null); // center the application window
+        frame.setLocationRelativeTo(null); // keskitä ikkuna
         frame.setVisible(true);
     }
-    
+
+    /**
+     * Metodi lisää ikkunalle kuuntelijan ja grafiikkakomponentin.
+     *
+     * @param container
+     */
     public void createComponents(Container container) {
-        PaintComponent p = new PaintComponent();
-        container.add(p);
-        container.addKeyListener(new GameListener(game.getPlayer()));
-        game.setPaintComponent(p);
+        frame.addKeyListener(new GameListener(game.getPlayer()));
+        container.add(game.getPaintComponent());
     }
-    
+
     public JFrame getFrame() {
         return frame;
     }
-    
-    public void startGame() {
-        game.startGame();
-    }
 }
-
-        

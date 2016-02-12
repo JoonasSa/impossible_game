@@ -17,28 +17,39 @@ public class ActorTest {
 
     @Before
     public void setUp() {
-        actor = new Actor(0, 0);
+        actor = new Actor(0, 0, 0, 0);
     }
     
     @Test
     public void newActorNegativeXTest() {
-        actor = new Actor(-1, 0);
+        actor = new Actor(-1, 0, 0, 0);
         assertEquals(0, actor.getX());
     }
     
     @Test
     public void newActorNegativeYTest() {
-        actor = new Actor(0, -1);
+        actor = new Actor(0, -1, 0, 0);
         assertEquals(0, actor.getY());
     }
     
     @Test
     public void newActorNegativeXYTest() {
-        actor = new Actor(-1, -1);
+        actor = new Actor(-1, -1, 0, 0);
         assertEquals(0, actor.getX());
         assertEquals(0, actor.getY());
     }
-
+    
+    @Test
+    public void newActorNegativeWidthTest() {
+        actor = new Actor(0, 0, -1, 0);
+        assertEquals(10, actor.getWidth());
+    }
+    
+    @Test
+    public void newActorNegativeHeightTest() {
+        actor = new Actor(0, 0, 0, -1);
+        assertEquals(10, actor.getHeight());
+    }
     //get & set-testit ovat tällä hetkellä hiukan turhia, mutta tulevaisuudessa 
     //niillä varmistetaan etteivät Actorit pääse ulos pelialueelta
     @Test
@@ -50,6 +61,16 @@ public class ActorTest {
     public void actorGetYTest() {
         assertEquals(0, actor.getY());
     }
+    
+    @Test
+    public void actorGetWidthtest() {
+        assertEquals(0, actor.getWidth());
+    }
+    
+    @Test
+    public void actorGetHeighttest() {
+        assertEquals(0, actor.getHeight());
+    } 
     
     @Test
     public void actorSetXTest() {
@@ -89,7 +110,7 @@ public class ActorTest {
     
     @Test
     public void moveLeftTest() {
-        actor = new Actor(15, 0);
+        actor = new Actor(15, 0, 0, 0);
         actor.moveLeft(10);
         assertEquals(5, actor.getX());
     }
@@ -102,7 +123,7 @@ public class ActorTest {
     
     @Test
     public void moveLeftNollaTest() {
-        actor = new Actor(15, 0);
+        actor = new Actor(15, 0, 0 ,0);
         actor.moveLeft(0);
         assertEquals(15, actor.getX());
     }

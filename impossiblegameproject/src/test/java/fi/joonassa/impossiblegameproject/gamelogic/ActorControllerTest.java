@@ -1,6 +1,8 @@
 
 package fi.joonassa.impossiblegameproject.gamelogic;
 
+import fi.joonassa.impossiblegameproject.actors.Player;
+import fi.joonassa.impossiblegameproject.gamemain.GameMain;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,13 +41,19 @@ public class ActorControllerTest {
         assertEquals(0, controller.getPlayer().getX());
     }
     
+    @Test
+    public void addPlayerWithWrongParamatersTest() {
+        controller.addPlayer(-1, 0);
+        assertEquals(0, controller.getPlayer().getX());
+    }
+    
     //tää testi tulee muuttaa jahka objectien lisäys laittaa 
     //objectin x = GameMain.WIDTH
     @Test
     public void updateObjectsTest() {
         controller.addObject(0);
         controller.updateObjects();
-        assertEquals(9, controller.getObjects().get(0).getX());
+        assertEquals(GameMain.width - 1, controller.getObjects().get(0).getX());
     }
     
     @Test
@@ -54,35 +62,9 @@ public class ActorControllerTest {
         controller.addObject(0);
         controller.addObject(0);
         controller.updateObjects();
-        assertEquals(9, controller.getObjects().get(0).getX());
-        assertEquals(9, controller.getObjects().get(1).getX());
-        assertEquals(9, controller.getObjects().get(2).getX());
-    }
-    
-    @Test
-    public void updatePlayerUpTest() {
-        controller.updatePlayerUp(10);
-        assertEquals(10, controller.getPlayer().getY());
-    }
-    
-    @Test
-    public void updatePlayerUpZeroTest() {
-        controller.updatePlayerUp(0);
-        assertEquals(0, controller.getPlayer().getY());
-    }
-    
-    @Test
-    public void updatePlayerDownTest() {
-        controller.addPlayer(0, 10);
-        controller.updatePlayerDown(10);
-        assertEquals(0, controller.getPlayer().getY());
-    }
-    
-    @Test
-    public void updatePlayerDownZeroTest() {
-        controller.addPlayer(0, 10);
-        controller.updatePlayerDown(0);
-        assertEquals(10, controller.getPlayer().getY());
+        assertEquals(GameMain.width - 1, controller.getObjects().get(0).getX());
+        assertEquals(GameMain.width - 1, controller.getObjects().get(1).getX());
+        assertEquals(GameMain.width - 1, controller.getObjects().get(2).getX());
     }
     
     @Test
@@ -97,9 +79,31 @@ public class ActorControllerTest {
         assertEquals(300, controller.getPlayer().getY());
     }
     
-        @Test
+    @Test
     public void restartObjectsTest() {
         controller.restart();
         assertEquals(0, controller.getObjects().size());
+    }
+    
+    @Test
+    public void updatePlayerUpTest() {
+        controller.addPlayer(0, 10);
+        controller.getPlayer().movedUp = true;
+        controller.updatePlayer(true);
+        assertEquals(7, controller.getPlayer().getY());
+    }
+    
+    @Test
+    public void updatePlayerDownTest() {
+        controller.addPlayer(10, 10);
+        controller.updatePlayer(false);
+        assertEquals(13, controller.getPlayer().getY());
+    }
+    
+    @Test
+    public void updatePlayerIsStuckTest() {
+        controller.addPlayer(10, 10);
+        controller.updatePlayer(true);
+        assertEquals(10, controller.getPlayer().getY());
     }
 }
