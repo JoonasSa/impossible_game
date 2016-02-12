@@ -9,3 +9,5 @@ Aloitin grafiikoiden luomisen jo tässä vaiheessa, koska tätä projektia on ai
 kutsuu lopulta GameMainia aloittamaan pelin. GameFrame alustaa grafiikan vain kerran kun ohjelma alkaa. Toinen iso muutos on GameControllerin hylkääminen. Huomasin ettei GameControllerilla ollut mitään omaa toiminnallisuutta, eikä siitä ollut mitään hyötyä ns. rajapintana GameMainin ja pelin loogiikan välillä. Loin jo peli looppia ja sen logiikkaa, tosin garfiikat eivät vielä päivity, mikä on harmi. 
 #*ke 10.2.2016 - (4h)*
 Grafiikka pävittyy ja näppäimistönkuuntelija toimii. Siistin koodia ja jatkoin pelilogiikan kehittämistä pelihahmon osalta. Nyt pelissä on alustava collision detection, jossa on tosin bugi. 
+#*pe 12.2.2016 - (2h)*
+Viimeistelin viikon palautuksen. Loin ja päivitin kaikki tarvittavat dokumentaatiot.
