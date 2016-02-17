@@ -13,10 +13,12 @@ public class ActorController {
 
     private ArrayList<Actor> objects;
     private Player player;
+    private int gameSpeed;
 
     public ActorController() {
         this.player = new Player(0, 0, 50, 50);
         this.objects = new ArrayList<>();
+        gameSpeed = 2;
     }
 
     /**
@@ -25,7 +27,7 @@ public class ActorController {
      * @param y objektin y arvo.
      */
     public void addObject(int y) {
-        objects.add(new Platform(GameMain.width, y));
+        objects.add(new Platform(GameMain.width, y, 75, 25));
     }
 
     /**
@@ -35,14 +37,18 @@ public class ActorController {
      */
     public void addObjectWithRandom(int y) {
         if (y == 0) {
-            objects.add(new Platform(GameMain.width, 200));
+            objects.add(new Platform(GameMain.width, 200, 75, 25));
         } else if (y == 1) {
-            objects.add(new Platform(GameMain.width, 300));
+            objects.add(new Platform(GameMain.width, 300, 75, 25));
         } else if (y == 2) {
-            objects.add(new Platform(GameMain.width, 400));
+            objects.add(new Platform(GameMain.width, 400, 75, 25));
         } else if (y == 3) {
-            objects.add(new Platform(GameMain.width, 500));
+            objects.add(new Platform(GameMain.width, 500, 75, 25));
         }
+    }
+    
+    public void increaseGameSpeed() {
+        gameSpeed++;
     }
 
     /**
@@ -62,7 +68,7 @@ public class ActorController {
      */
     public void updateObjects() {
         for (Actor x : objects) {
-            x.moveLeft(1);
+            x.moveLeft(gameSpeed);
         }
     }
 
@@ -83,13 +89,16 @@ public class ActorController {
      * @see actors.Player#moveUp(int)
      */
     public void updatePlayer(boolean playerIsStuck) {
-        if (Player.movedUp) {
-            player.moveUp(3);
+        //tän vois hoitaa ilman movingUppia jos yhditetään move metodit
+        if (Player.movingUp) {
+            player.updateJump();
+            player.moveUp(player.getJumpSpeed());
         } else {
             if (playerIsStuck) {
                 return;
             }
-            player.moveDown(3);
+            player.updateJump();
+            player.moveDown(player.getJumpSpeed());
         }
     }
 
@@ -100,10 +109,12 @@ public class ActorController {
         player.setX(100);
         player.setY(300);
         this.objects = new ArrayList<>();
+        objects.add(new Platform(100, 500, 300, 25));
+        gameSpeed = 2;
     }
 
     /**
-     * (HUOM! Ei toimi oikein!) Tarkistaa osuuko pelaaja mihinkään objektiin.
+     * Tarkistaa osuuko pelaaja mihinkään objektiin.
      *
      * @return palauttaa totuusarvona osuuko pelaaja johonkin.
      */
@@ -111,7 +122,7 @@ public class ActorController {
         for (Actor x : objects) {
             if (player.getX() < x.getX() + x.getWidth()
                     && player.getWidth() + player.getX() > x.getX()
-                    && player.getY() > x.getWidth() + x.getHeight()
+                    && player.getY() < x.getY() + x.getHeight()
                     && player.getHeight() + player.getY() > x.getY()) {
                 return true;
             }

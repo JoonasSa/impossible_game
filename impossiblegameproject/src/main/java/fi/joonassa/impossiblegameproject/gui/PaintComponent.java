@@ -36,11 +36,11 @@ public class PaintComponent extends JPanel {
         g2d.setColor(Color.WHITE);
         if (actors != null) {
             for (Actor x : actors) {
-                g2d.fillRect(x.getX(), x.getY(), 100, 25);
+                g2d.drawRect(x.getX(), x.getY(), x.getWidth(), x.getHeight());
             }
         }
         if (player != null) {
-            g2d.fillRect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
+            g2d.drawRect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
         }
 
     }

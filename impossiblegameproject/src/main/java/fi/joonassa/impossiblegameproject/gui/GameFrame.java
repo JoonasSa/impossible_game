@@ -40,7 +40,7 @@ public class GameFrame implements Runnable {
      * @param container
      */
     public void createComponents(Container container) {
-        frame.addKeyListener(new GameListener(game.getPlayer()));
+        frame.addKeyListener(game.getGameListener());
         container.add(game.getPaintComponent());
     }
 

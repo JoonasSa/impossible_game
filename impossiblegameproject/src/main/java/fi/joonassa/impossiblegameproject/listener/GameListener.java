@@ -9,33 +9,41 @@ import java.awt.event.KeyListener;
  */
 public class GameListener implements KeyListener {
     
-    private Player player;
+    private boolean jumped;
     
-    //ilmeisesti turha antaa player tänne
-    public GameListener(Player player) {
-        this.player = player;
+    public GameListener() {
+        jumped = false;
     }
     
-    //tulee toimia todennäköisesti pressed -> released logiikalla
+    public boolean getDidPlayerJump() {
+        if (jumped) {
+            jumped = false;
+            return true;
+        }
+        return false;
+    }
+    
     /**
-     * Kuuntelee näppäimiä ja asettaa player movedUp = true, mikäli näppäin oli 
+     * Kuuntelee näppäimiä ja asettaa player movingUp = true, mikäli painettu näppäin oli 
      * välilyönti tai ylänuoli.
      * @param e painettu näppäin.
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP) {
-            Player.movedUp = true;
+        if (Player.canJump && (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP)) {
+            jumped = true;
+            //player.jump();
         }
     }
 
     /**
-     * Asettaa player movedUP = false, kun näppäimestä päästetään irti.
+     * Asettaa player movingUp = false, kun näppäimestä päästetään irti.
      * @param e vapautettu näppäin.
      */
     @Override
     public void keyReleased(KeyEvent e) {
-        Player.movedUp = false;
+        jumped = false;
+        //player.drop();
     }
         
     @Override

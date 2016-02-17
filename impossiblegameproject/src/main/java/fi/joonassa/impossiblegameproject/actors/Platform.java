@@ -6,7 +6,7 @@ package fi.joonassa.impossiblegameproject.actors;
  */
 public class Platform extends Actor {
 
-    public Platform(int x, int y) {
-        super(x, y, 100, 25);
+    public Platform(int x, int y, int width, int height) {
+        super(x, y, width, height);
     }
 }

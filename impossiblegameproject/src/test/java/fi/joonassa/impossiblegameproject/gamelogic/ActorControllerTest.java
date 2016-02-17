@@ -88,7 +88,7 @@ public class ActorControllerTest {
     @Test
     public void updatePlayerUpTest() {
         controller.addPlayer(0, 10);
-        controller.getPlayer().movedUp = true;
+        controller.getPlayer().movingUp = true;
         controller.updatePlayer(true);
         assertEquals(7, controller.getPlayer().getY());
     }

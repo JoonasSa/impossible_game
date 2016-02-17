@@ -9,11 +9,50 @@ public class Player extends Actor {
     /**
      * Määrittelee mihin suuntaan pelaaja liikku pelin päivittyessä.
      */
-    public static boolean movedUp;
+    public static boolean movingUp;
+    public static boolean canJump;
+    private double speed;
+    private double gravity;
     
     public Player(int x, int y, int width, int height) {
         super(x, y, width, height);
-        movedUp = false;
+        //alustetaan drop tilaan
+        movingUp = false;
+        speed = 1;
+        gravity = 1.02;
+        canJump = false;
+    }
+    
+    public void parseInput(boolean jumped) {
+        if (!movingUp && canJump && jumped) {
+            jump();
+        }
+    }
+    
+    public void jump() {
+        movingUp = true;
+        speed = 10;
+        gravity = 0.98;
+    }
+    
+    public void updateJump() {
+        speed *= gravity;
+        //hypyn yläkohta
+        if (movingUp && speed <= 1) {
+            drop();
+        } else if (!movingUp && speed >= 10) {
+            gravity = 1;
+        }
+    }
+    
+    public void drop() {
+        movingUp = false;
+        speed = 1.2;
+        gravity = 1.02;
+    }
+    
+    public int getJumpSpeed() {
+        return (int) speed;
     }
     
     //tee static final ruudun mitat, jotta voit varmistaa ettei liikuta ulos ruudusta
