@@ -13,4 +13,5 @@ Grafiikka pävittyy ja näppäimistönkuuntelija toimii. Siistin koodia ja jatko
 Viimeistelin viikon palautuksen. Loin ja päivitin kaikki tarvittavat dokumentaatiot.
 #*ma 15.2.2016 - (1h)*
 Projekti edisty sieltä täältä.
-#*ke 17.2.2016 - ()*
+#*ke 17.2.2016 - (3h)*
+Hyppiminen toimii nyt melkein oikein, eli gravitaatio löytyy ja tuplahypyt eivät enää onnistu. Parantelin myös pelinopeutta, ja laattojen syntymistä. Kohta tätä voi jo pelata... 
