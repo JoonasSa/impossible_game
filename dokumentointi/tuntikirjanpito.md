@@ -11,3 +11,6 @@ kutsuu lopulta GameMainia aloittamaan pelin. GameFrame alustaa grafiikan vain ke
 Grafiikka pävittyy ja näppäimistönkuuntelija toimii. Siistin koodia ja jatkoin pelilogiikan kehittämistä pelihahmon osalta. Nyt pelissä on alustava collision detection, jossa on tosin bugi. 
 #*pe 12.2.2016 - (2h)*
 Viimeistelin viikon palautuksen. Loin ja päivitin kaikki tarvittavat dokumentaatiot.
+#*ma 15.2.2016 - (1h)*
+Projekti edisty sieltä täältä.
+#*ke 17.2.2016 - ()*
