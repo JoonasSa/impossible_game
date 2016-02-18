@@ -17,27 +17,18 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 
 #Käyttäjän toiminnot
 * Käyttäjä käynnistää ohjelman
-* Toiminnot valikossa
- * Pelaaja valitsee pelimuodon
- * Pelaaja avaa high score -listan
- * Pelaaja aloittaa uuden pelin
 * Toiminnot pelissä
   * Pelaaja kontrolloi hahmoaan hyppimällä, ja pyrkii pysymään hengissä mahdollisimman kauan
   * Pelaaja ei pysty liikkumaan sivuittain
+  * Pelaaja voi laittaa pelin tauolle, ja high score tulee näkyviin
 * Käyttäjän tavoite
- * Tarkoituksena on päästä pelin jokainen kenttä lävitse
  * Saada uusi high score
 
-#Valikko
-* Valikosta voi valita mitä kenttää haluaa pelata.
-* Valikosta pääsee selamaan high score -listaa.
-* Uudet pelimuodot ilmestyvät valikkoon jahka niitä tulee lisää
-
-#Kentät
-Pelissä on erilaisia kenttiä, jotka kaikki poikkeavat toisistaan.
-Kentät sisältävät alustan jolla pelaaja matkaa, sekä esteet joita pelaajan tulee vältellä.
+#Kenttä
+Kenttä sisältävät alustat joilla pelaaja matkaa. Kenttää luodaan satunnaisesti sitämukaa, kun pelaaja etenee.
 
 #Jatkokehitys ideoita
+* Valikko
 * Endless mode - Peli, joka jatkuu kunnes pelaaja kuolee
   * Valikkoon pitää lisätä pelimuodon valinta
 * No gravity mode - Pelissä ei ole pelaajan vaikuttavaa painovoimaa
