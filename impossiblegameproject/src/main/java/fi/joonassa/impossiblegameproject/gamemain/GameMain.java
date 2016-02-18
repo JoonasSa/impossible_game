@@ -62,9 +62,9 @@ public class GameMain extends JPanel {
             actorController.addObjectWithRandom(random.nextInt(3));
         }
         actorController.updateObjects();
-        actorController.getPlayer().parseInput(gameListener.getDidPlayerJump());
         touchedPlatform = actorController.collisionTest();
         Player.canJump = touchedPlatform;
+        actorController.getPlayer().parseInput(gameListener.getDidPlayerJump());
         actorController.updatePlayer(touchedPlatform);
         paintComponent.setActors(actorController.getObjects(), actorController.getPlayer());
         spawnPlatform++;

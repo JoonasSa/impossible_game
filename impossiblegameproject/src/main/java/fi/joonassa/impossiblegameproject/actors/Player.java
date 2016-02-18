@@ -10,6 +10,9 @@ public class Player extends Actor {
      * Määrittelee mihin suuntaan pelaaja liikku pelin päivittyessä.
      */
     public static boolean movingUp;
+    /**
+     * Tarpeellinen ilmassa hyppimisen estämiseen.
+     */
     public static boolean canJump;
     private double speed;
     private double gravity;
@@ -23,28 +26,39 @@ public class Player extends Actor {
         canJump = false;
     }
     
+    /**
+     * Vastaanottaa pelaajan syötteen ja hyppää jos ehtolause on tosi.
+     * @param jumped pelaajan syöte
+     */
     public void parseInput(boolean jumped) {
         if (!movingUp && canJump && jumped) {
             jump();
         }
     }
     
+    /**
+     * Simuloi pelaajan hahmon hyppäämistä asettamalla liikesuunnan ylös.
+     */
     public void jump() {
         movingUp = true;
         speed = 10;
         gravity = 0.98;
     }
     
+    /**
+     * Päivittää pelaajan liikkeen liikesuunnan mukaan.
+     */
     public void updateJump() {
         speed *= gravity;
         //hypyn yläkohta
         if (movingUp && speed <= 1) {
             drop();
-        } else if (!movingUp && speed >= 10) {
-            gravity = 1;
         }
     }
     
+    /**
+     * Simuloi pelaajan putoamista asettamalla liikesuunnan alas.
+     */
     public void drop() {
         movingUp = false;
         speed = 1.2;

@@ -53,7 +53,7 @@ public class ActorControllerTest {
     public void updateObjectsTest() {
         controller.addObject(0);
         controller.updateObjects();
-        assertEquals(GameMain.width - 1, controller.getObjects().get(0).getX());
+        assertEquals(GameMain.width - 2, controller.getObjects().get(0).getX());
     }
     
     @Test
@@ -62,9 +62,9 @@ public class ActorControllerTest {
         controller.addObject(0);
         controller.addObject(0);
         controller.updateObjects();
-        assertEquals(GameMain.width - 1, controller.getObjects().get(0).getX());
-        assertEquals(GameMain.width - 1, controller.getObjects().get(1).getX());
-        assertEquals(GameMain.width - 1, controller.getObjects().get(2).getX());
+        assertEquals(GameMain.width - 2, controller.getObjects().get(0).getX());
+        assertEquals(GameMain.width - 2, controller.getObjects().get(1).getX());
+        assertEquals(GameMain.width - 2, controller.getObjects().get(2).getX());
     }
     
     @Test
@@ -82,22 +82,24 @@ public class ActorControllerTest {
     @Test
     public void restartObjectsTest() {
         controller.restart();
-        assertEquals(0, controller.getObjects().size());
+        assertEquals(1, controller.getObjects().size());
     }
     
     @Test
     public void updatePlayerUpTest() {
-        controller.addPlayer(0, 10);
-        controller.getPlayer().movingUp = true;
-        controller.updatePlayer(true);
-        assertEquals(7, controller.getPlayer().getY());
+        controller.addPlayer(10, 20);
+        controller.getPlayer().jump();
+        controller.updatePlayer(false);
+        System.out.println(controller.getPlayer().getY());
+        assertEquals(11, controller.getPlayer().getY());
     }
     
     @Test
     public void updatePlayerDownTest() {
         controller.addPlayer(10, 10);
+        controller.getPlayer().drop();
         controller.updatePlayer(false);
-        assertEquals(13, controller.getPlayer().getY());
+        assertEquals(11, controller.getPlayer().getY());
     }
     
     @Test
@@ -105,5 +107,59 @@ public class ActorControllerTest {
         controller.addPlayer(10, 10);
         controller.updatePlayer(true);
         assertEquals(10, controller.getPlayer().getY());
+    }
+    
+    @Test
+    public void increaseGameSpeedTest() {
+        controller.increaseGameSpeed();
+        assertEquals(3, controller.getGameSpeed());
+    }
+    
+    @Test
+    public void addObjectWithRandomEquals0() {
+        controller.addObjectWithRandom(0);
+        assertEquals(200, controller.getObjects().get(0).getY());
+        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandomEquals1() {
+        controller.addObjectWithRandom(1);
+        assertEquals(300, controller.getObjects().get(0).getY());
+        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandomEquals2() {
+        controller.addObjectWithRandom(2);
+        assertEquals(400, controller.getObjects().get(0).getY());
+        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandomEquals3() {
+        controller.addObjectWithRandom(3);
+        assertEquals(500, controller.getObjects().get(0).getY());
+        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandomEqualsOver3() {
+        controller.addObjectWithRandom(4);
+        assertEquals(0, controller.getObjects().size());
+    }
+    
+    @Test
+    public void collisionTrueTest() {
+        controller.addPlayer(GameMain.width, 10);
+        controller.addObject(10);
+        assertEquals(true, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionFalseTest() {
+        controller.addPlayer(10, 10);
+        controller.addObject(10);
+        assertEquals(true, controller.collisionTest());
     }
 }

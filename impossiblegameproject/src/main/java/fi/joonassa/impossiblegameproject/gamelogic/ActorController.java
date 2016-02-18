@@ -90,7 +90,7 @@ public class ActorController {
      */
     public void updatePlayer(boolean playerIsStuck) {
         //tän vois hoitaa ilman movingUppia jos yhditetään move metodit
-        if (Player.movingUp) {
+        if (player.movingUp) {
             player.updateJump();
             player.moveUp(player.getJumpSpeed());
         } else {
@@ -102,6 +102,10 @@ public class ActorController {
         }
     }
 
+    public int getGameSpeed() {
+        return gameSpeed;
+    }
+    
     /**
      * Nollaa pelin objektit.
      */

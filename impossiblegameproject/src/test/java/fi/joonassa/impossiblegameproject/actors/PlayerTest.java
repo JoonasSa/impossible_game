@@ -82,6 +82,12 @@ public class PlayerTest {
     }
     
     @Test
+    public void MoveUpZeroTest() {
+        player.moveUp(0);
+        assertEquals(0, player.getY());
+    }
+    
+    @Test
     public void moveDownTest() {
         player = new Player(0, 15, 0, 0);
         player.moveDown(10);
@@ -91,6 +97,12 @@ public class PlayerTest {
     @Test
     public void negativeMoveDownTest() {
         player.moveDown(-10);
+        assertEquals(0, player.getY());
+    }
+    
+    @Test
+    public void MoveDownZeroTest() {
+        player.moveDown(0);
         assertEquals(0, player.getY());
     }
 
@@ -104,5 +116,37 @@ public class PlayerTest {
     public void newPlayerNegativeY() {
         Player x = new Player(1,-1, 0, 0);
         assertEquals(0, x.getY());
+    }
+    
+    @Test
+    public void parseInputTest1() {
+        player.movingUp = false;
+        player.canJump = true;
+        player.parseInput(true);
+        assertEquals(10, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void parseInputTest2() {
+        player.movingUp = false;
+        player.canJump = true;
+        player.parseInput(false);
+        assertEquals(1, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void parseInputTest3() {
+        player.movingUp = false;
+        player.canJump = false;
+        player.parseInput(true);
+        assertEquals(1, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void parseInputTest4() {
+        player.movingUp = true;
+        player.canJump = true;
+        player.parseInput(true);
+        assertEquals(1, player.getJumpSpeed());
     }
 }

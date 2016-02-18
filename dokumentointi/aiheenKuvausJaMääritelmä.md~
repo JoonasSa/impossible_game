@@ -6,11 +6,7 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 [Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
 
 #Ohjelman rakenne
-![Luokkakaavio](kaaviot/luokkakaavio1.png)
-
-#Ohjelman toiminta
-![Ohjelman käynnistämisen sekvenssikaavio](kaaviot/sekvenssikaavio2.png)
-![Pelihahmon hyppäämisen sekvenssikaavio](kaaviot/sekvenssikaavio1.png)
+![Määrittelyvaiheen luokkakaavio](kaaviot/luokkakaavio1.png)
 
 #Käyttäjät: 
 * Pelaaja
