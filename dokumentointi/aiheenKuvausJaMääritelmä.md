@@ -12,7 +12,7 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 ![Ohjelman käynnistämisen sekvenssikaavio](kaaviot/sekvenssikaavio2.png)
 ![Pelihahmon hyppäämisen sekvenssikaavio](kaaviot/sekvenssikaavio1.png)
 
-#Käyttäjät: 
+#Käyttäjät
 * Pelaaja
 
 #Käyttäjän toiminnot
