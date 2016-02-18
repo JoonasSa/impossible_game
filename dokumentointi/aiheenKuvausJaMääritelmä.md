@@ -16,6 +16,7 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 * Pelaaja
 
 #Käyttäjän toiminnot
+* Käyttäjä käynnistää ohjelman
 * Toiminnot valikossa
  * Pelaaja valitsee pelimuodon
  * Pelaaja avaa high score -listan
