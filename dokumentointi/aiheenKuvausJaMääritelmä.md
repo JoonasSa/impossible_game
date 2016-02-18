@@ -25,7 +25,7 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
  * Saada uusi high score
 
 #Kenttä
-Kenttä sisältävät alustat joilla pelaaja matkaa. Kenttää luodaan satunnaisesti sitämukaa, kun pelaaja etenee.
+Kenttä sisältää alustoja joilla pelaaja matkaa. Kenttää luodaan satunnaisesti sitä mukaa, kun pelaaja etenee.
 
 #Jatkokehitys ideoita
 * Valikko
