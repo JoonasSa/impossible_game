@@ -18,6 +18,11 @@ public class PaintComponent extends JPanel {
     private ArrayList<Actor> actors = null;
     private Player player = null;
 
+    /**
+     * Asettaa PaintComponentille renderoitavat liikkujat.
+     * @param l lista liikkujia
+     * @param p pelaaja
+     */
     public void setActors(ArrayList<Actor> l, Player p) {
         actors = l;
         player = p;

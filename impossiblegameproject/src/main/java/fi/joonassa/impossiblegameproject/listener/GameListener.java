@@ -11,10 +11,17 @@ public class GameListener implements KeyListener {
     
     private boolean jumped;
     
+    /**
+     * Luo uuden näppäimistönkuuntelija.
+     */
     public GameListener() {
         jumped = false;
     }
     
+    /**
+     * Palauttaa onko oikeanlainen syöte saatu.
+     * @return totuusarvona true mikäli pelaaja tahtoo hypätä
+     */
     public boolean getDidPlayerJump() {
         if (jumped) {
             jumped = false;

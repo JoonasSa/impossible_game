@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 11,
-             Errors: 2,
+      <title>File: 9,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -102,20 +102,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.gamelogic.PlayerMovement.java">fi/joonassa/impossiblegameproject/gamelogic/PlayerMovement.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.Main.java">fi/joonassa/impossiblegameproject/Main.java</a>
                 </td>
                 <td>
@@ -139,7 +125,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -167,26 +153,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.actors.Player.java">fi/joonassa/impossiblegameproject/actors/Player.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.listener.GameBindings.java">fi/joonassa/impossiblegameproject/listener/GameBindings.java</a>
                 </td>
                 <td>
                   0

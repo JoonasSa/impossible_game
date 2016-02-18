@@ -15,6 +15,9 @@ public class ActorController {
     private Player player;
     private int gameSpeed;
 
+    /**
+     * Luo uuden liikkujakontrollerin. Tämän luokan kautta hallitaan liikkujia.
+     */
     public ActorController() {
         this.player = new Player(0, 0, 50, 50);
         this.objects = new ArrayList<>();
@@ -47,6 +50,9 @@ public class ActorController {
         }
     }
     
+    /**
+     * Kasvattaa alustojen liikkumisnopeutta yhdellä.
+     */
     public void increaseGameSpeed() {
         gameSpeed++;
     }

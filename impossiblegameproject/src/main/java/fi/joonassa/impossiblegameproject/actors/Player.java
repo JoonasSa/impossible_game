@@ -17,6 +17,13 @@ public class Player extends Actor {
     private double speed;
     private double gravity;
     
+    /**
+     * Luo uuden pelaajan peliin.
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     * @param width leveys
+     * @param height korkeus
+     */
     public Player(int x, int y, int width, int height) {
         super(x, y, width, height);
         //alustetaan drop tilaan
