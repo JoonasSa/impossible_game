@@ -14,4 +14,7 @@ Viimeistelin viikon palautuksen. Loin ja päivitin kaikki tarvittavat dokumentaa
 #*ma 15.2.2016 - (1h)*
 Projekti edisty sieltä täältä.
 #*ke 17.2.2016 - (3h)*
+Koodi ja dokumentaatio edistyi.
+#*to 18.2.2016 - (2h)*
+Dokumentaatio viikolta valmis.
 Hyppiminen toimii nyt melkein oikein, eli gravitaatio löytyy ja tuplahypyt eivät enää onnistu. Parantelin myös pelinopeutta, ja laattojen syntymistä. Kohta tätä voi jo pelata... 
