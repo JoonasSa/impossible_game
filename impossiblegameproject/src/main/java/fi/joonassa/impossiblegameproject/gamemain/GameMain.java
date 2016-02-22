@@ -4,22 +4,22 @@ import fi.joonassa.impossiblegameproject.actors.Player;
 import fi.joonassa.impossiblegameproject.gamelogic.ActorController;
 import fi.joonassa.impossiblegameproject.gui.PaintComponent;
 import fi.joonassa.impossiblegameproject.listener.GameListener;
-import java.util.Random;
 import javax.swing.JPanel;
+
 /**
- * Luokka pyörittää pelilooppia ja kutsuu muita pelin komponentteja. 
+ * Luokka pyörittää pelilooppia ja kutsuu muita pelin komponentteja.
  */
 public class GameMain extends JPanel {
 
-    private boolean gameOver;
-    private boolean gamePaused;
     private ActorController actorController;
     private PaintComponent paintComponent;
     private GameListener gameListener;
-    private Random random;
     private boolean touchedPlatform;
-    private int gameSpeed;
-            
+    public static boolean gamePaused;
+    public static boolean gameQuit;
+    public static int score;
+    public static int highscore;
+
     /**
      * Pelialueen mitat.
      */
@@ -31,22 +31,28 @@ public class GameMain extends JPanel {
     public GameMain(int width, int height) {
         this.width = width;
         this.height = height;
+        gameQuit = false;
         actorController = new ActorController();
         paintComponent = new PaintComponent();
         gameListener = new GameListener();
     }
-    
+
     /**
-     * Käynnistää pääohjelman ja on peliloop. Tämä metodi pyörii kokoajan pelinalustamisen jälkeen.
+     * Käynnistää pääohjelman ja on peliloop. Tämä metodi pyörii kokoajan
+     * pelinalustamisen jälkeen.
+     *
      * @see gui.paintComponent#repaint();
      */
     public void startGame() {
-        initialize();
-        while (!gameOver) {
-            restart();
+        restart();
+        while (!gameQuit) {
+            try {
+                Thread.sleep(10);
+            } catch (Exception e) {
+                System.out.println("Problem with Thread.sleep");
+            }
             while (!gamePaused) {
                 gameUpdate();
-                paintComponent.repaint();
                 try {
                     Thread.sleep(10);
                 } catch (Exception e) {
@@ -57,49 +63,36 @@ public class GameMain extends JPanel {
     }
 
     private void gameUpdate() {
-        //siirrä kierros logiikkaa actorControllerille
-        if (spawnPlatform == 0) {
-            actorController.addObjectWithRandom(random.nextInt(3));
+        if (gameListener.getDidPlayerRestart() || actorController.playerIsDead()) {
+            startGame();
+        } else if (score % 1000 == 0) {
+            actorController.makeGameHarder();
         }
+        actorController.updateSpawn();
         actorController.updateObjects();
         touchedPlatform = actorController.collisionTest();
         Player.canJump = touchedPlatform;
         actorController.getPlayer().parseInput(gameListener.getDidPlayerJump());
         actorController.updatePlayer(touchedPlatform);
         paintComponent.setActors(actorController.getObjects(), actorController.getPlayer());
-        spawnPlatform++;
-        if (spawnPlatform > 200) {
-            spawnPlatform = 0;
-        }
-        /*
-        gameSpeed++;
-        if (gameSpeed % 1000 == 0) {
-            actorController.increaseGameSpeed();
-            gameSpeed = 0;
-        }
-        */
-    }
-
-    private void initialize() {
-        gameOver = false;
+        score++;
+        paintComponent.repaint();
     }
 
     private void restart() {
+        if (score > highscore) {
+            highscore = score;
+        }
         actorController.restart();
         gamePaused = false;
-        random = new Random();
         touchedPlatform = false;
-        gameSpeed = 1;
-        spawnPlatform = 0;
-    }
-
-    private void gameShutdown() {
+        score = 0;
     }
 
     public PaintComponent getPaintComponent() {
         return paintComponent;
     }
-    
+
     public GameListener getGameListener() {
         return gameListener;
     }

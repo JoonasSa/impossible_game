@@ -110,46 +110,6 @@ public class ActorControllerTest {
     }
     
     @Test
-    public void increaseGameSpeedTest() {
-        controller.increaseGameSpeed();
-        assertEquals(3, controller.getGameSpeed());
-    }
-    
-    @Test
-    public void addObjectWithRandomEquals0() {
-        controller.addObjectWithRandom(0);
-        assertEquals(200, controller.getObjects().get(0).getY());
-        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
-    }
-    
-    @Test
-    public void addObjectWithRandomEquals1() {
-        controller.addObjectWithRandom(1);
-        assertEquals(300, controller.getObjects().get(0).getY());
-        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
-    }
-    
-    @Test
-    public void addObjectWithRandomEquals2() {
-        controller.addObjectWithRandom(2);
-        assertEquals(400, controller.getObjects().get(0).getY());
-        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
-    }
-    
-    @Test
-    public void addObjectWithRandomEquals3() {
-        controller.addObjectWithRandom(3);
-        assertEquals(500, controller.getObjects().get(0).getY());
-        assertEquals(GameMain.width, controller.getObjects().get(0).getX());
-    }
-    
-    @Test
-    public void addObjectWithRandomEqualsOver3() {
-        controller.addObjectWithRandom(4);
-        assertEquals(0, controller.getObjects().size());
-    }
-    
-    @Test
     public void collisionTrueTest() {
         controller.addPlayer(GameMain.width, 10);
         controller.addObject(10);

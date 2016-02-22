@@ -1,7 +1,6 @@
 package fi.joonassa.impossiblegameproject.gui;
 
 import fi.joonassa.impossiblegameproject.gamemain.GameMain;
-import fi.joonassa.impossiblegameproject.listener.GameListener;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -25,7 +24,7 @@ public class GameFrame implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Impossible Game");
-        frame.setPreferredSize(new Dimension(800, 600));
+        frame.setPreferredSize(new Dimension(GameMain.width, GameMain.height));
         createComponents(frame.getContentPane());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);

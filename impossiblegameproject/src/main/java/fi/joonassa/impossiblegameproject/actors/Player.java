@@ -16,6 +16,7 @@ public class Player extends Actor {
     public static boolean canJump;
     private double speed;
     private double gravity;
+    private int jumpHeight;
     
     /**
      * Luo uuden pelaajan peliin.
@@ -26,11 +27,7 @@ public class Player extends Actor {
      */
     public Player(int x, int y, int width, int height) {
         super(x, y, width, height);
-        //alustetaan drop tilaan
-        movingUp = false;
-        speed = 1;
-        gravity = 1.02;
-        canJump = false;
+        drop();
     }
     
     /**
@@ -38,7 +35,10 @@ public class Player extends Actor {
      * @param jumped pelaajan syöte
      */
     public void parseInput(boolean jumped) {
-        if (!movingUp && canJump && jumped) {
+        if (jumpHeight > 0 && jumpHeight < 10 && jumped) {
+            jumpHeight++;
+            speed++;
+        } else if (!movingUp && canJump && jumped) {
             jump();
         }
     }
@@ -48,8 +48,9 @@ public class Player extends Actor {
      */
     public void jump() {
         movingUp = true;
-        speed = 10;
+        speed = 2;
         gravity = 0.98;
+        jumpHeight = 1;
     }
     
     /**
@@ -68,8 +69,9 @@ public class Player extends Actor {
      */
     public void drop() {
         movingUp = false;
-        speed = 1.2;
+        speed = 1.1;
         gravity = 1.02;
+        jumpHeight = 0;
     }
     
     public int getJumpSpeed() {

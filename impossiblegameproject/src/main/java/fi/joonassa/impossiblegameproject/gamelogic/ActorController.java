@@ -5,6 +5,7 @@ import fi.joonassa.impossiblegameproject.actors.Platform;
 import fi.joonassa.impossiblegameproject.actors.Player;
 import fi.joonassa.impossiblegameproject.gamemain.GameMain;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Tämän luokan kautta hallitaan pelin jokaista actoria.
@@ -13,15 +14,18 @@ public class ActorController {
 
     private ArrayList<Actor> objects;
     private Player player;
+    private Random random;
+    private int spawnPlatform;
+    private int difficulty;
     private int gameSpeed;
 
     /**
      * Luo uuden liikkujakontrollerin. Tämän luokan kautta hallitaan liikkujia.
      */
     public ActorController() {
-        this.player = new Player(0, 0, 50, 50);
         this.objects = new ArrayList<>();
         gameSpeed = 2;
+        random = new Random();
     }
 
     /**
@@ -30,31 +34,23 @@ public class ActorController {
      * @param y objektin y arvo.
      */
     public void addObject(int y) {
-        objects.add(new Platform(GameMain.width, y, 75, 25));
+        objects.add(new Platform(GameMain.width, y, 100, 25));
     }
 
     /**
      * Lisää uuden objekteja peliin, jolla on satunnainen arvo x.
-     *
-     * @param y objektin y arvo.
      */
-    public void addObjectWithRandom(int y) {
+    public void addObjectWithRandom() {
+        int y = random.nextInt(3);
         if (y == 0) {
-            objects.add(new Platform(GameMain.width, 200, 75, 25));
+            objects.add(new Platform(GameMain.width, GameMain.height - 100, random.nextInt(50) + 200 - 25 * difficulty, 25));
         } else if (y == 1) {
-            objects.add(new Platform(GameMain.width, 300, 75, 25));
+            objects.add(new Platform(GameMain.width, GameMain.height - 200, random.nextInt(50) + 200 - 25 * difficulty, 25));
         } else if (y == 2) {
-            objects.add(new Platform(GameMain.width, 400, 75, 25));
+            objects.add(new Platform(GameMain.width, GameMain.height - 300, random.nextInt(50) + 200 - 25 * difficulty, 25));
         } else if (y == 3) {
-            objects.add(new Platform(GameMain.width, 500, 75, 25));
+            objects.add(new Platform(GameMain.width, GameMain.height - 400, random.nextInt(50) + 200 - 25 * difficulty, 25));
         }
-    }
-    
-    /**
-     * Kasvattaa alustojen liikkumisnopeutta yhdellä.
-     */
-    public void increaseGameSpeed() {
-        gameSpeed++;
     }
 
     /**
@@ -75,6 +71,16 @@ public class ActorController {
     public void updateObjects() {
         for (Actor x : objects) {
             x.moveLeft(gameSpeed);
+        }
+    }
+    
+    public void updateSpawn() {
+        if (spawnPlatform == 0) {
+            addObjectWithRandom();
+        }
+        spawnPlatform++;
+        if (spawnPlatform > 200) {
+            spawnPlatform = 0;
         }
     }
 
@@ -108,19 +114,23 @@ public class ActorController {
         }
     }
 
-    public int getGameSpeed() {
-        return gameSpeed;
-    }
-    
     /**
      * Nollaa pelin objektit.
      */
     public void restart() {
+        this.player = new Player(0, 0, 50, 50);
         player.setX(100);
         player.setY(300);
         this.objects = new ArrayList<>();
-        objects.add(new Platform(100, 500, 300, 25));
-        gameSpeed = 2;
+        objects.add(new Platform(100, GameMain.height - 200, GameMain.width / 2, 25));
+        difficulty = 1;
+        spawnPlatform = 0;
+    }
+    
+    public void makeGameHarder() {
+        if (difficulty <= 6) {
+            difficulty++;
+        }
     }
 
     /**
@@ -138,5 +148,9 @@ public class ActorController {
             }
         }
         return false;
+    }
+    
+    public boolean playerIsDead() {
+        return player.getY() >= GameMain.height;
     }
 }
