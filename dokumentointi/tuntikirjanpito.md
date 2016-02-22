@@ -18,3 +18,7 @@ Koodi ja dokumentaatio edistyi.
 #*to 18.2.2016 - (2h)*
 Dokumentaatio viikolta valmis.
 Hyppiminen toimii nyt melkein oikein, eli gravitaatio löytyy ja tuplahypyt eivät enää onnistu. Parantelin myös pelinopeutta, ja laattojen syntymistä. Kohta tätä voi jo pelata... 
+#*pe 19.2.2016 - (1h)*
+Sitä sun tätä. Eli koodia sieltä ja täältä.
+#*ma 22.2.2016 - (3,5h)*
+Score, high score ja erilaiset gamestatet (paused, restart) toimivat.
