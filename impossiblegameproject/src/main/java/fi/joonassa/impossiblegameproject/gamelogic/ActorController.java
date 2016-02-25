@@ -30,7 +30,6 @@ public class ActorController {
 
     /**
      * Lisää uuden objekteja peliin.
-     *
      * @param y objektin y arvo.
      */
     public void addObject(int y) {
@@ -39,9 +38,13 @@ public class ActorController {
 
     /**
      * Lisää uuden objekteja peliin, jolla on satunnainen arvo x.
+     * @param forTesting parametri vain testejä varten.
      */
-    public void addObjectWithRandom() {
-        int y = random.nextInt(3);
+    public void addObjectWithRandom(int forTesting) {
+        int y = forTesting;
+        if (forTesting == -1) {
+            y = random.nextInt(3); //Huom ei koskaan saa arvoa 3
+        }
         if (y == 0) {
             objects.add(new Platform(GameMain.width, GameMain.height - 100, random.nextInt(50) + 200 - 25 * difficulty, 25));
         } else if (y == 1) {
@@ -74,9 +77,12 @@ public class ActorController {
         }
     }
     
+    /**
+     * Lisää alustoja peliin tasaisin ajoin.
+     */
     public void updateSpawn() {
         if (spawnPlatform == 0) {
-            addObjectWithRandom();
+            addObjectWithRandom(-1);
         }
         spawnPlatform++;
         if (spawnPlatform > 200) {
@@ -127,10 +133,18 @@ public class ActorController {
         spawnPlatform = 0;
     }
     
+    /**
+     * Hankaloittaa peliä kasvattamalla muuttujaa difficulty, mikä pienentä 
+     * alustojen kokoa keskimääräisesti.
+     */
     public void makeGameHarder() {
         if (difficulty <= 6) {
             difficulty++;
         }
+    }
+    
+    public int getDifficulty() {
+        return difficulty;
     }
 
     /**
@@ -150,6 +164,10 @@ public class ActorController {
         return false;
     }
     
+    /**
+     * Tarkistaa onko pelaaja pelialueen ulkopuolella.
+     * @return boolean arvon joka kuvastaa onko pelaaja pelialueen ulkopuolella
+     */
     public boolean playerIsDead() {
         return player.getY() >= GameMain.height;
     }

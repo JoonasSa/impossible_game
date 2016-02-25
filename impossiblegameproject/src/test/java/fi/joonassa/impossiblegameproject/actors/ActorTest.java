@@ -40,6 +40,18 @@ public class ActorTest {
     }
     
     @Test
+    public void newActorXTest() {
+        actor = new Actor(1, 0, 0, 0);
+        assertEquals(1, actor.getX());
+    }
+    
+    @Test
+    public void newActorYTest() {
+        actor = new Actor(0, 1, 0, 0);
+        assertEquals(1, actor.getY());
+    }
+    
+    @Test
     public void newActorNegativeWidthTest() {
         actor = new Actor(0, 0, -1, 0);
         assertEquals(10, actor.getWidth());
@@ -127,4 +139,5 @@ public class ActorTest {
         actor.moveLeft(0);
         assertEquals(15, actor.getX());
     }
+
 } 

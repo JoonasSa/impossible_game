@@ -15,18 +15,21 @@ public class GameMain extends JPanel {
     private PaintComponent paintComponent;
     private GameListener gameListener;
     private boolean touchedPlatform;
+    /**
+     * Pelintilat.
+     */
     public static boolean gamePaused;
     public static boolean gameQuit;
+    /**
+     * Pelaajan nykyiset pisteet ja parhaat pisteet.
+     */
     public static int score;
     public static int highscore;
-
     /**
      * Pelialueen mitat.
      */
     public static int width;
     public static int height;
-
-    public static int spawnPlatform;
 
     public GameMain(int width, int height) {
         this.width = width;

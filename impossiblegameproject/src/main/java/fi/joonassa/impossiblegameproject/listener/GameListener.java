@@ -31,6 +31,10 @@ public class GameListener implements KeyListener {
         return jumped;
     }
     
+    /**
+     * Palauttaa onko pelaaja restartannut pelin.
+     * @return totuusarvona true mikäli pelaaja tahtoo restartata pelin
+     */
     public boolean getDidPlayerRestart() {
         if (restart) {
             restart = false;

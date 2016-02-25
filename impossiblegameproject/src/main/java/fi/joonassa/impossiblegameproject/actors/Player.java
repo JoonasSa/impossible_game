@@ -48,7 +48,7 @@ public class Player extends Actor {
      */
     public void jump() {
         movingUp = true;
-        speed = 2;
+        speed = 1.1;
         gravity = 0.98;
         jumpHeight = 1;
     }

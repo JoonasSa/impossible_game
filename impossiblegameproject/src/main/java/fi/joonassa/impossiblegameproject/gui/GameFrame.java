@@ -14,6 +14,10 @@ public class GameFrame implements Runnable {
     private JFrame frame;
     private GameMain game;
 
+    /**
+     * Luo GameFramen.
+     * @param main
+     */
     public GameFrame(GameMain main) {
         game = main;
     }
@@ -40,6 +44,7 @@ public class GameFrame implements Runnable {
      */
     public void createComponents(Container container) {
         frame.addKeyListener(game.getGameListener());
+        //container.add(new Background());
         container.add(game.getPaintComponent());
     }
 

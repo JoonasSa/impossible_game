@@ -10,6 +10,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 import javax.swing.JPanel;
 
 /**
@@ -20,12 +22,27 @@ public class PaintComponent extends JPanel {
 
     private ArrayList<Actor> actors = null;
     private Player player = null;
-    //private Font myFont = new Font("It wasn't me", Font.BOLD, 70);
-    private Font myFont = new Font("Ubuntu Mono", Font.BOLD, 60);
+    //private HashMap<Integer, Integer> stars = null;
+    //private Font myFont = new Font("Ubuntu Mono", Font.BOLD, 70);
+    private Font myFont = new Font("It wasn't me", Font.BOLD, 60);
     private FontMetrics metric = getFontMetrics(myFont);
     private int textWidth;
     private String score;
-
+    
+    /*
+    public PaintComponent() {
+        
+        Random random = new Random();
+        stars = new HashMap();
+        int tahtia = random.nextInt(100);
+        for (int i = 0; i < tahtia + 100; i++) {
+            stars.put(random.nextInt(440000));
+        }
+        
+        
+    }
+    */ 
+    
     /**
      * Asettaa PaintComponentille renderoitavat liikkujat.
      * @param l lista liikkujia
@@ -49,11 +66,13 @@ public class PaintComponent extends JPanel {
         g2d.setColor(Color.WHITE);
         if (actors != null) {
             for (Actor x : actors) {
+                g2d.fillRect(x.getX() + 7, x.getY() + 5, x.getWidth() - 12, x.getHeight() - (int) (x.getHeight() * 0.8));
                 g2d.drawRect(x.getX(), x.getY(), x.getWidth(), x.getHeight());
             }
         }
         if (player != null) {
             g2d.drawRect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
+            //g2d.fillRect(player.getX() + 7, player.getY() + 7, player.getWidth() - 17, player.getHeight() - 15);
         }
         g2d.setFont(myFont);
         score = "" + (GameMain.score / 10) + "0";
@@ -63,6 +82,10 @@ public class PaintComponent extends JPanel {
             g2d.drawString("0", 10, 50);
         } else {
             g2d.drawString("" + (GameMain.highscore / 10) + "0", 10, 50);
+        }
+        /*
+        for (Integer x : stars) {
+            g2d.fillRect(x / 400, x / 1100, 4, 4);
         }
         /*
         score = "" + GameMain.score;

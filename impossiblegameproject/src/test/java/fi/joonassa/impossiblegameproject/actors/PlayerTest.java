@@ -123,7 +123,7 @@ public class PlayerTest {
         player.movingUp = false;
         player.canJump = true;
         player.parseInput(true);
-        assertEquals(10, player.getJumpSpeed());
+        assertEquals(1, player.getJumpSpeed());
     }
     
     @Test
@@ -148,5 +148,21 @@ public class PlayerTest {
         player.canJump = true;
         player.parseInput(true);
         assertEquals(1, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void parseInputTest5() {
+        player.jump();
+        player.parseInput(true);
+        assertEquals(2, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void updateJumpTest() {
+        player.jump();
+        for (int i = 0; i < 50; i++) {
+            player.updateJump();
+        }
+        assertEquals(player.movingUp, false);
     }
 }
