@@ -8,15 +8,15 @@ ja nollaantuu vain pelaajan kuollessa. :trophy:
 #Ohjelman rakenne
 ![Luokkakaavio](kaaviot/luokkakaavio2.png)
 
-Ohjelma käynnistyessä alustetaan GameMain ja se annetaan GameFrame-oliolle. GameMain alustaa pelin logiikan ja sen tarvitsemat oliot (ActorController, GameListener), sekä grafiikka olion joka annetaan myös GameFramelle. GameFrame paketoi ohjelman grafiikan eli ikkunan ja renderöijä-olion PaintComponent. 
+Ohjelman käynnistyessä alustetaan GameMain-olio ja se annetaan GameFrame-oliolle parametrina. GameMain alustaa pelin logiikan ja sen tarvitsemat oliot (ActorController, GameListener), sekä grafiikka olion joka annetaan myös GameFramelle. GameFrame paketoi ohjelman grafiikan eli ikkunan ja renderöijä-olion PaintComponent. 
 
-Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonainen gameStart() kierto vastaa pelissä yhtä päivitys kierrosta. gameStart() sisältää pelin tauottamiseen ja jatkamiseen liittyvän logiikan. gameUpdate() taas kutsuu vuorotellen jokaista GameMainissa alustettua olioa:
+Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonainen gameStart() kierto vastaa pelissä yhtä päivityskierrosta. gameStart() sisältää pelin tauottamiseen ja jatkamiseen liittyvän logiikan. gameUpdate() taas kutsuu vuorotellen jokaista GameMainissa alustettua olioa:
 * ActorController hoitaa vuorollaan pelihahmojen sijainnin päivittämisen, uusien hahmojen lisäämisen ja osumatestit.
   * ActorController sisältää listan päivitettävistä Actoreista.
   * Sekä Player, että Platform ovat Actor -luokan aliluokkia.
 * PaintComponent renderoi uuden peli tilanteen joka päivitys kierroksella. 
-* Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näpääimistön painalluksia, ja toimii mikäli tiettyjä näppäimiä painetaan.
-  * Näppäinten painallusten mukaan toimitaan joka päivitys kierroksella. Riippuen mitä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, tauota peli, uudelleen käynnistä peli, taikka sammutta ohjelma.
+* Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näppäimistön painalluksia, ja toimii mikäli tiettyjä näppäimiä painetaan.
+  * Näppäinten painallusten mukaan toimitaan joka päivityskierroksella. Riippuen mitä näppäintä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, pelitauko, uusi peli, taikka sammutta ohjelma.
 
 #Ohjelman toiminta
 ![Ohjelman käynnistämisen sekvenssikaavio](kaaviot/sekvenssikaavio2.png)
