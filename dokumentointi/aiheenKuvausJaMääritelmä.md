@@ -23,7 +23,7 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
 ![Pelihahmon hyppäämisen sekvenssikaavio](kaaviot/sekvenssikaavio1.png)
 
 #Käyttöohje
-![Käyttöohje](kayttoohje.md)
+![Käyttöohjeet löytyvät täältä.](kayttoohje.md)
 
 #Käyttäjät
 * Pelaaja
