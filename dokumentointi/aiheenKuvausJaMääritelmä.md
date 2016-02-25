@@ -4,6 +4,7 @@ Pelissä pelaaja ei pysty liikkumaan sivuttain, vaan kenttä ikäänkuin rullaa 
 Pelissä on high score -lista johon tallennetaan parhaimmat suoritukset, score säilyy kentästä toiseen 
 ja nollaantuu vain pelaajan kuollessa. :trophy:
 [Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
+
 ---
 #Ohjelman rakenne
 ![Luokkakaavio](kaaviot/luokkakaavio2.png)
