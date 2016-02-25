@@ -5,7 +5,6 @@ Pelissä on high score -lista johon tallennetaan parhaimmat suoritukset, score s
 ja nollaantuu vain pelaajan kuollessa. :trophy:
 [Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
 
----
 #Ohjelman rakenne
 ![Luokkakaavio](kaaviot/luokkakaavio2.png)
 
@@ -18,11 +17,11 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
 * PaintComponent renderoi uuden peli tilanteen joka päivitys kierroksella. 
 * Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näpääimistön painalluksia, ja toimii mikäli tiettyjä näppäimiä painetaan.
   * Näppäinten painallusten mukaan toimitaan joka päivitys kierroksella. Riippuen mitä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, tauota peli, uudelleen käynnistä peli, taikka sammutta ohjelma.
----
+
 #Ohjelman toiminta
 ![Ohjelman käynnistämisen sekvenssikaavio](kaaviot/sekvenssikaavio2.png)
 ![Pelihahmon hyppäämisen sekvenssikaavio](kaaviot/sekvenssikaavio1.png)
----
+
 #Käyttöohje
 ![Käyttöohje](kayttoohje.md)
 
@@ -40,7 +39,7 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
 
 #Kenttä
 Kenttä sisältää alustoja joilla pelaaja matkaa. Kenttää luodaan satunnaisesti sitä mukaa, kun pelaaja etenee.
----
+
 #Jatkokehitys ideoita
 * Endless mode - Peli, joka jatkuu kunnes pelaaja kuolee
   * Valikkoon pitää lisätä pelimuodon valinta
