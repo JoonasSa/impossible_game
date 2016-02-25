@@ -16,7 +16,7 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
   * Sekä Player, että Platform ovat Actor -luokan aliluokkia.
 * PaintComponent renderoi uuden peli tilanteen joka päivitys kierroksella. 
 * Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näppäimistön painalluksia, ja toimii mikäli tiettyjä näppäimiä painetaan.
-  * Näppäinten painallusten mukaan toimitaan joka päivityskierroksella. Riippuen mitä näppäintä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, pelitauko, uusi peli, taikka sammutta ohjelma.
+  * Näppäinten painallusten mukaan toimitaan joka päivityskierroksella. Riippuen mitä näppäintä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, pelitauko, uusi peli, taikka sammuta ohjelma.
 
 #Ohjelman toiminta
 ![Ohjelman käynnistämisen sekvenssikaavio](kaaviot/sekvenssikaavio2.png)
