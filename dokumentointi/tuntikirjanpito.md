@@ -22,3 +22,5 @@ Hyppiminen toimii nyt melkein oikein, eli gravitaatio löytyy ja tuplahypyt eiv�
 Sitä sun tätä. Eli koodia sieltä ja täältä.
 #*ma 22.2.2016 - (3,5h)*
 Score, high score ja erilaiset gamestatet (paused, restart) toimivat.
+#*ke 24.2.2016 - (2h)*
+Dokumentaatiota ja yleistä viilausta.
