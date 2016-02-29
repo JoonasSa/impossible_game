@@ -24,3 +24,5 @@ Sitä sun tätä. Eli koodia sieltä ja täältä.
 Score, high score ja erilaiset gamestatet (paused, restart) toimivat.
 #*ke 24.2.2016 - (2h)*
 Dokumentaatiota ja yleistä viilausta.
+#*ma 29.2.2016 - (2h)*
+Lisäsin pelille "hienon" tähtitaivas taustan, ja parantelin collision detectionia. Nyt pelaaja kuolee, jos hän hyppää laatan sisään.
