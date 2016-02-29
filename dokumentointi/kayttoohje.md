@@ -9,5 +9,5 @@ Pelihahmon hypyn pituus muuttuu hyppy napin painalluksen pituuden mukaan: pidemp
 #Näppäimet
 * Hyppiminen - välilyönti tai ylänuoli
 * Tauko - A
-* Uusi peli - D
+* Uusi peli - D (Huom. Uuden pelin voi aloittaa, kun peli on tauolla, mutta uusi peli ei ala ennen kuin tauko loppuu.)
 * Sammuta ohjelma - Esc
