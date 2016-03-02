@@ -1,21 +1,17 @@
 #Aihe
-Impossible game tyylinen peli, jossa pelaaja yrittää selviytyä mahdollisimman kauan vaikeustason kasvaessa.
-Pelissä pelaaja ei pysty liikkumaan sivuttain, vaan kenttä ikäänkuin rullaa pelaaja päin oikealta vasemmalle.
-Pelissä on high score -lista johon tallennetaan parhaimmat suoritukset, score säilyy kentästä toiseen 
-ja nollaantuu vain pelaajan kuollessa. :trophy:
-[Tässä linkki projektin inspiraatioon.](http://impossiblegame.org/the-impossible-game/)
+Tasohyppelypeli, jossa pelaajan on tarkoitus selviytyä mahdollisimman kauan vaikeustason kasvaessa. Pelaaja saa sitä paremmat pisteet suorituksestaan, mitä kauemmin hän selviytyy. Pelissä pelaaja ei pysty liikkumaan sivuttain, vaan pelialue ikäänkuin rullaa pelaaja päin oikealta vasemmalle.
 
 #Ohjelman rakenne
 ![Luokkakaavio](kaaviot/luokkakaavio2.png)
 
-Ohjelman käynnistyessä alustetaan GameMain-olio ja se annetaan GameFrame-oliolle parametrina. GameMain alustaa pelin logiikan ja sen tarvitsemat oliot (ActorController, GameListener), sekä grafiikka olion joka annetaan myös GameFramelle. GameFrame paketoi ohjelman grafiikan eli ikkunan ja renderöijä-olion PaintComponent. 
+Ohjelman käynnistyessä alustetaan GameMain-olio ja se annetaan GameFrame-oliolle parametrina. GameMain alustaa pelin logiikan ja sen tarvitsemat oliot (ActorController, GameListener), sekä grafiikka olion joka annetaan myös GameFramelle. GameFrame paketoi ohjelmaikkunan ja PaintComponent grafiikka renderöijä -olion. 
 
 Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonainen gameStart() kierto vastaa pelissä yhtä päivityskierrosta. gameStart() sisältää pelin tauottamiseen ja jatkamiseen liittyvän logiikan. gameUpdate() taas kutsuu vuorotellen jokaista GameMainissa alustettua olioa:
 * ActorController hoitaa vuorollaan pelihahmojen sijainnin päivittämisen, uusien hahmojen lisäämisen ja osumatestit.
   * ActorController sisältää listan päivitettävistä Actoreista.
   * Sekä Player, että Platform ovat Actor -luokan aliluokkia.
-* PaintComponent renderoi uuden peli tilanteen joka päivitys kierroksella. 
-* Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näppäimistön painalluksia, ja toimii mikäli tiettyjä näppäimiä painetaan.
+* PaintComponent renderoi uuden pelitilanteen jokaisella päivitys kierroksella. 
+* Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näppäimistön painalluksia, ja reagoi mikäli tiettyjä näppäimiä painetaan.
   * Näppäinten painallusten mukaan toimitaan joka päivityskierroksella. Riippuen mitä näppäintä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, pelitauko, uusi peli, taikka sammuta ohjelma.
 
 #Ohjelman toiminta
@@ -31,18 +27,17 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
 #Käyttäjän toiminnot
 * Käyttäjä käynnistää ohjelman
 * Toiminnot pelissä
-  * Pelaaja kontrolloi hahmoaan hyppimällä, ja pyrkii pysymään hengissä mahdollisimman kauan
-  * Pelaaja ei pysty liikkumaan sivuittain
-  * Pelaaja voi laittaa pelin tauolle, ja high score tulee näkyviin
+  * Pelaaja kontrolloi hahmoaan hyppimällä, ja pyrkii välttämään häviämistä mahdollisimman kauan
+  * Pelaaja ei pysty liikkuttamaan hahmoaan sivuttain
+  * Pelaaja voi laittaa pelin tauolle, ja high score tulee näkyviin *(implementoi!)*
 * Käyttäjän tavoite
  * Saada uusi high score
 
 #Kenttä
-Kenttä sisältää alustoja joilla pelaaja matkaa. Kenttää luodaan satunnaisesti sitä mukaa, kun pelaaja etenee.
+Kenttä sisältää alustoja joilla pelaaja matkaa. Kenttää generoidaan satunnaisesti pelin edetessä.
 
 #Jatkokehitys ideoita
 * Endless mode - Peli, joka jatkuu kunnes pelaaja kuolee
-  * Valikkoon pitää lisätä pelimuodon valinta
 * No gravity mode - Pelissä ei ole pelaajan vaikuttavaa painovoimaa
   * Pelin luonne muuttuu kun pelaaja ei kontrolloikaan hahmoaan vain hyppimällä
 * Boundless mode - Peli, jossa pelaaja kykenee liikkumaan myös sivuittain
