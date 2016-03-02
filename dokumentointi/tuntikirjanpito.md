@@ -26,3 +26,5 @@ Score, high score ja erilaiset gamestatet (paused, restart) toimivat.
 Dokumentaatiota ja yleistä viilausta.
 #*ma 29.2.2016 - (2h)*
 Lisäsin pelille "hienon" tähtitaivas taustan, ja parantelin collision detectionia. Nyt pelaaja kuolee, jos hän hyppää laatan sisään.
+#*ke 2.3.2016 - (1h)*
+Viilasin dokumentaatiota, ja pohdin viimeisiä toimenpiteitä sekä kehityskohteita. 
