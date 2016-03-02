@@ -1,6 +1,6 @@
 #impossible_game - Javalabra 2016
 
-Javalla toteutettu [Impossible game tyylinen peli](http://impossiblegame.org/the-impossible-game/), jossa pelaaja yrittää selviytyä mahdollisimman kauan vaikeustason kasvaessa.
+Javalla toteutettu tasohyppelypeli, jossa pelaaja pyrkii selviytymään mahdollisimman kauan satunnaisesti generoiduilla tasoilla.
 
 #Dokumentaatio
 
