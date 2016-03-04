@@ -26,3 +26,5 @@ Dokumentaatiota ja yleistä viilausta.
 Lisäsin pelille "hienon" tähtitaivas taustan, ja parantelin collision detectionia. Nyt pelaaja kuolee, jos hän hyppää laatan sisään.
 #*ke 2.3.2016 - (1h)*
 Viilasin dokumentaatiota, ja pohdin viimeisiä toimenpiteitä sekä kehityskohteita. 
+#*pe 4.3.2016 - (4h)*
+Viimeistelin ohjelman, nyt siinä on aloitus ruutu ja pause näyttää high score ja pisteet tyylikkäästi. Refaktoiroin myös hiukan koodia, ja poistin kokonaan luokan Platform, koska se oli aivan turha. Parantelin testi kattavuutta ja päivitin dokumentaatiota.
