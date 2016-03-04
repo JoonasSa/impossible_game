@@ -158,11 +158,75 @@ public class PlayerTest {
     }
     
     @Test
-    public void updateJumpTest() {
+    public void parseInputTest6() {
+        player.jump();
+        for (int i = 0; i < 9; i++) {
+            player.parseInput(true);
+        }
+        assertEquals(10, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void parseInputTest7() {
+        player.jump();
+        player.movingUp = false;
+        player.canJump = true;
+        for (int i = 0; i < 10; i++) {
+            player.parseInput(true);
+        }
+        assertEquals(1, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void updateJumpTest1() {
         player.jump();
         for (int i = 0; i < 50; i++) {
             player.updateJump();
         }
-        assertEquals(player.movingUp, false);
+        assertEquals(false, player.movingUp);
+    }
+    
+    @Test
+    public void updateJumpTest2() {
+        player.jump();
+        player.setSpeed(1);
+        player.updateJump();
+        assertEquals(1, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void updateJumpTest3() {
+        player.jump();
+        player.setSpeed(1);
+        player.updateJump();
+        assertEquals(false, player.movingUp);
+    }
+    
+    @Test
+    public void updateJumpTest4() {
+        player.jump();
+        player.setSpeed(0);
+        player.updateJump();
+        assertEquals(false, player.movingUp);
+    }
+    
+    @Test
+    public void updateJumpTest5() {
+        player.drop();
+        player.setSpeed(6);
+        for (int i = 0; i < 50; i++) {
+            player.updateJump();
+        }
+        assertEquals(6, player.getJumpSpeed());
+    }
+    
+    @Test
+    public void updateJumpTest6() {
+        player.drop();
+        player.setSpeed(5);
+        for (int i = 0; i < 50; i++) {
+            player.updateJump();
+        }
+        assertEquals(6, player.getJumpSpeed());
     }
 }

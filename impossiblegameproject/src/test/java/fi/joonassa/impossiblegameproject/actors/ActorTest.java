@@ -33,6 +33,18 @@ public class ActorTest {
     }
     
     @Test
+    public void newActorZeroXTest() {
+        actor = new Actor(0, 0, 0, 0);
+        assertEquals(0, actor.getX());
+    }
+    
+    @Test
+    public void newActorZeroYTest() {
+        actor = new Actor(0, 0, 0, 0);
+        assertEquals(0, actor.getY());
+    }
+    
+    @Test
     public void newActorNegativeXYTest() {
         actor = new Actor(-1, -1, 0, 0);
         assertEquals(0, actor.getX());
@@ -107,17 +119,17 @@ public class ActorTest {
         actor.setY(-5);
         assertEquals(0, actor.getY());
     }
+      
+    @Test 
+    public void actorSetNollaXTest() {
+        actor.setX(0);
+        assertEquals(0, actor.getX());
+    }
     
     @Test 
     public void actorSetNollaYTest() {
         actor.setY(0);
         assertEquals(0, actor.getY());
-    }
-    
-    @Test 
-    public void actorSetNollaXTest() {
-        actor.setX(0);
-        assertEquals(0, actor.getX());
     }
     
     @Test

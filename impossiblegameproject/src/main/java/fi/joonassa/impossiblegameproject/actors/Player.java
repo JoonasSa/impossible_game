@@ -57,7 +57,13 @@ public class Player extends Actor {
      * Päivittää pelaajan liikkeen liikesuunnan mukaan.
      */
     public void updateJump() {
-        speed *= gravity;
+        if (!movingUp) {
+            if (speed < 6) {
+                speed *= gravity;   
+            }
+        } else {
+            speed *= gravity;    
+        }
         //hypyn yläkohta
         if (movingUp && speed <= 1) {
             drop();
@@ -100,4 +106,12 @@ public class Player extends Actor {
             this.setY(this.getY() - amount);
         }
     }    
+    
+    /**
+     * Käytetään testaamiseen.
+     * @param amount speed asetetaan täksi arvoksi
+     */
+    public void setSpeed(double amount) {
+        this.speed = amount;
+    }
 }

@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 10,
+      <title>File: 8,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -44,20 +44,6 @@ under the License.
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.actors.Platform.java">fi/joonassa/impossiblegameproject/actors/Platform.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.gamemain.GameMain.java">fi/joonassa/impossiblegameproject/gamemain/GameMain.java</a>
@@ -89,20 +75,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.gui.PaintComponent.java">fi/joonassa/impossiblegameproject/gui/PaintComponent.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.joonassa.impossiblegameproject.gui.Background.java">fi/joonassa/impossiblegameproject/gui/Background.java</a>
                 </td>
                 <td>
                   0

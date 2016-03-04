@@ -44,7 +44,6 @@ public class GameFrame implements Runnable {
      */
     public void createComponents(Container container) {
         frame.addKeyListener(game.getGameListener());
-        //container.add(new Background());
         container.add(game.getPaintComponent());
     }
 

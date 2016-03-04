@@ -88,9 +88,27 @@ public class ActorControllerTest {
     }
     
     @Test
-    public void restartPlatformTest() {
+    public void restartPlatformTest1() {
         controller.restart();
         assertEquals(100, controller.getObjects().get(0).getX());
+    }
+    
+    @Test
+    public void restartPlatformTest2() {
+        controller.restart();
+        assertEquals(GameMain.height - 300, controller.getObjects().get(0).getY());
+    }
+    
+    @Test
+    public void restartPlatformTest3() {
+        controller.restart();
+        assertEquals(GameMain.width / 2, controller.getObjects().get(0).getWidth());
+    }
+    
+    @Test
+    public void restartPlatformTest4() {
+        controller.restart();
+        assertEquals(25, controller.getObjects().get(0).getHeight());
     }
 
     @Test
@@ -115,6 +133,24 @@ public class ActorControllerTest {
         controller.updatePlayer(true);
         assertEquals(10, controller.getPlayer().getY());
     }
+    
+    @Test
+    public void updatePlayerTest1() {
+        controller.addPlayer(10, 10);
+        controller.getPlayer().jump();
+        controller.getPlayer().setSpeed(100);
+        controller.updatePlayer(false);
+        assertEquals(98, controller.getPlayer().getJumpSpeed());
+    }
+
+    @Test
+    public void updatePlayerTest2() {
+        controller.addPlayer(10, 10);
+        controller.getPlayer().drop();
+        controller.getPlayer().setSpeed(5.9);
+        controller.updatePlayer(false);
+        assertEquals(6, controller.getPlayer().getJumpSpeed());
+    }
 
     @Test
     public void collisionTrueTest() {
@@ -132,7 +168,7 @@ public class ActorControllerTest {
     @Test
     public void collisionTest1() {
         controller.restart();
-        controller.getPlayer().setY(main.height - 200);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY());
         assertEquals(true, controller.collisionTest());
     }
     
@@ -140,14 +176,88 @@ public class ActorControllerTest {
     public void collisionTest2() {
         controller.restart();
         controller.getPlayer().setX(90);
-        controller.getPlayer().setY(main.height - 200);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY());
         assertEquals(true, controller.collisionTest());
     }
     
     @Test
     public void collisionTest3() {
         controller.restart();
-        controller.getPlayer().setY(main.height - 210);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY() - 10);
+        assertEquals(true, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTest4() {
+        controller.restart();
+        controller.getPlayer().setY(controller.getObjects().get(0).getY() - 100);
+        assertEquals(false, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTest5() {
+        controller.restart();
+        controller.getPlayer().setY(controller.getObjects().get(0).getY() + 100);
+        assertEquals(false, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTest6() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() - 200);
+        assertEquals(false, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTest7() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() + 200);
+        assertEquals(false, controller.collisionTest());
+    }
+
+    @Test
+    public void collisionTest8() {
+        controller.restart();
+        controller.getPlayer().setY(controller.getObjects().get(0).getY() + 10);
+        assertEquals(true, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTest9() {
+        controller.restart();
+        controller.addObject(0, 0, GameMain.width, GameMain.height);
+        assertEquals(true, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTestForSideHit1() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() - 49);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY());
+        assertEquals(true, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTestForSideHit2() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() - 50);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY());
+        assertEquals(false, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTestForSideHit3() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() - 52);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY());
+        assertEquals(false, controller.collisionTest());
+    }
+    
+    @Test
+    public void collisionTestForSideHit4() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() - 49);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY() - 49);
         assertEquals(true, controller.collisionTest());
     }
 
@@ -165,6 +275,24 @@ public class ActorControllerTest {
             controller.updateSpawn();
         }
         assertEquals(3, controller.getObjects().size());
+    }
+    
+    @Test
+    public void updateSpawnTest3() {
+        controller.restart();
+        for (int i = 0; i < 202; i++) {
+            controller.updateSpawn();
+        }
+        assertEquals(3, controller.getObjects().size());
+    }
+    
+    @Test
+    public void updateSpawnTest4() {
+        controller.restart();
+        for (int i = 0; i < 200; i++) {
+            controller.updateSpawn();
+        }
+        assertEquals(2, controller.getObjects().size());
     }
 
     @Test
@@ -201,38 +329,73 @@ public class ActorControllerTest {
     }
     
     @Test
-    public void addObjectWithRandom0Test() {
+    public void addObjectWithRandom0YTest() {
         controller.restart();
         controller.addObjectWithRandom(0);
         assertEquals(main.height - 100, controller.getObjects().get(1).getY());
     }
     
     @Test
-    public void addObjectWithRandom1Test() {
+    public void addObjectWithRandom0XTest() {
+        controller.restart();
+        controller.addObjectWithRandom(2);
+        assertEquals(main.width, controller.getObjects().get(1).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandom0HeightTest() {
+        controller.restart();
+        controller.addObjectWithRandom(2);
+        assertEquals(25, controller.getObjects().get(1).getHeight());
+    }
+    
+    @Test
+    public void addObjectWithRandom1YTest() {
         controller.restart();
         controller.addObjectWithRandom(1);
         assertEquals(main.height - 200, controller.getObjects().get(1).getY());
     }
     
     @Test
-    public void addObjectWithRandom2Test() {
+    public void addObjectWithRandom1XTest() {
+        controller.restart();
+        controller.addObjectWithRandom(2);
+        assertEquals(main.width, controller.getObjects().get(1).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandom1HeightTest() {
+        controller.restart();
+        controller.addObjectWithRandom(2);
+        assertEquals(25, controller.getObjects().get(1).getHeight());
+    }
+    
+    @Test
+    public void addObjectWithRandom2YTest() {
         controller.restart();
         controller.addObjectWithRandom(2);
         assertEquals(main.height - 300, controller.getObjects().get(1).getY());
     }
     
     @Test
-    public void addObjectWithRandom3Test() {
+    public void addObjectWithRandom2XTest() {
         controller.restart();
-        controller.addObjectWithRandom(3);
-        assertEquals(main.height - 400, controller.getObjects().get(1).getY());
+        controller.addObjectWithRandom(2);
+        assertEquals(main.width, controller.getObjects().get(1).getX());
+    }
+    
+    @Test
+    public void addObjectWithRandom2HeightTest() {
+        controller.restart();
+        controller.addObjectWithRandom(2);
+        assertEquals(25, controller.getObjects().get(1).getHeight());
     }
     
     @Test
     public void PlayerIsDeadTrueTest() {
         controller.restart();
         controller.getPlayer().setY(main.height + 1);
-        assertEquals(true, controller.playerIsDead());
+        assertTrue(controller.playerIsDead());
     }
     
     @Test
@@ -241,5 +404,20 @@ public class ActorControllerTest {
         controller.getPlayer().setY(main.height - 1);
         assertFalse(controller.playerIsDead());
     }
-
+    
+    @Test
+    public void PlayerIsDeadTrueTest2() {
+        controller.restart();
+        controller.getPlayer().setY(main.height);
+        assertTrue(controller.playerIsDead());
+    }
+    
+    @Test
+    public void PlayerHitsPlatformTest() {
+        controller.restart();
+        controller.getPlayer().setX(controller.getObjects().get(0).getX() - 49);
+        controller.getPlayer().setY(controller.getObjects().get(0).getY());
+        controller.collisionTest();
+        assertEquals(true, controller.playerIsDead());
+    }    
 }
