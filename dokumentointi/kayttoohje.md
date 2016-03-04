@@ -6,6 +6,8 @@ Pelaaja on neliö, joka yrittää välttää pelialueen alalaitaan putoamista hy
 
 Pelihahmon hypyn pituus muuttuu hyppynäppäimen painalluksen pituuden mukaan: pidempi painallus = pidempi hyppy. Siis lyhyin mahdollinen hyppy tapahtuu näpäyttämällä hyppynäppäintä, ja pisin mahdollinen hyppy tapahtuu hetken hyppynäppäintä pohjassa pitämällä.
 
+Peli alkaa aloitusnäkymästä, josta pääsee peliin painamalla 'A'.
+
 #Näppäimet
 * Hyppiminen - välilyönti tai ylänuoli
 * Tauko - A
