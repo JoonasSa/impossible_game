@@ -27,6 +27,7 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
 
 #Käyttäjän toiminnot
 * Käyttäjä käynnistää ohjelman
+ * Aloitusnäkymästä peliin pääsee painamalla 'A' 
 * Toiminnot pelissä
   * Pelaaja kontrolloi hahmoaan hyppimällä, ja pyrkii välttämään häviämistä mahdollisimman kauan
   * Pelaaja ei pysty liikkuttamaan hahmoaan sivuttain
