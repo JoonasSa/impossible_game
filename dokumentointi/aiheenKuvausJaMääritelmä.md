@@ -9,7 +9,7 @@ Ohjelman käynnistyessä alustetaan GameMain-olio ja se annetaan GameFrame-oliol
 Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonainen gameStart() kierto vastaa pelissä yhtä päivityskierrosta. gameStart() sisältää pelin tauottamiseen ja jatkamiseen liittyvän logiikan. gameUpdate() taas kutsuu vuorotellen jokaista GameMainissa alustettua olioa:
 * ActorController hoitaa vuorollaan pelihahmojen sijainnin päivittämisen, uusien hahmojen lisäämisen ja osumatestit.
   * ActorController sisältää listan päivitettävistä Actoreista.
-  * Sekä Player, että Platform ovat Actor -luokan aliluokkia.
+  * Player on Actorin alaluokka.
 * PaintComponent renderoi uuden pelitilanteen jokaisella päivitys kierroksella. 
 * Riippumattomana GameMainin peliloopista toimii taustalla GameListener, joka kuuntelee näppäimistön painalluksia, ja reagoi mikäli tiettyjä näppäimiä painetaan.
   * Näppäinten painallusten mukaan toimitaan joka päivityskierroksella. Riippuen mitä näppäintä on painettu GameListener palauttaa boolean-arvoja, jotka kuvaavat pelaajan komentoja: hyppy, pelitauko, uusi peli, taikka sammuta ohjelma.
