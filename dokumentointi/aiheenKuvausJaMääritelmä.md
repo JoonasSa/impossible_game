@@ -2,7 +2,7 @@
 Tasohyppelypeli, jossa pelaajan on tarkoitus selviytyä mahdollisimman kauan vaikeustason kasvaessa. Pelaaja saa sitä paremmat pisteet suorituksestaan, mitä kauemmin hän selviytyy. Pelissä pelaaja ei pysty liikkumaan sivuttain, vaan pelialue ikäänkuin rullaa pelaaja päin oikealta vasemmalle.
 
 #Ohjelman rakenne
-![Luokkakaavio](kaaviot/luokkakaavio2.png)
+![Luokkakaavio](kaaviot/luokkakaavio3.png)
 
 Ohjelman käynnistyessä alustetaan GameMain-olio ja se annetaan GameFrame-oliolle parametrina. GameMain alustaa pelin logiikan ja sen tarvitsemat oliot (ActorController, GameListener), sekä grafiikka olion joka annetaan myös GameFramelle. GameFrame paketoi ohjelmaikkunan ja PaintComponent grafiikka renderöijä -olion. 
 
