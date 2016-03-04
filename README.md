@@ -9,3 +9,7 @@ Javalla toteutettu tasohyppelypeli, jossa pelaaja pyrkii selviytymään mahdolli
 [tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
 
 [käyttöohjeet](dokumentointi/kayttoohje.md)
+
+
+
+Ajettava jar. -tiedosto löytyy impossiblegameproject hakemistosta.
