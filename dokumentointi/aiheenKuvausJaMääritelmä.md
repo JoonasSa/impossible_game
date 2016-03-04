@@ -16,6 +16,7 @@ Ohjelma toimii GameMainin gameStart() ja gameUpdate() -loopeissa. Yksi kokonaine
 
 #Ohjelman toiminta
 ![Ohjelman käynnistämisen sekvenssikaavio](kaaviot/sekvenssikaavio2.png)
+(huom! Ei sisällä newGame looppia)
 ![Pelihahmon hyppäämisen sekvenssikaavio](kaaviot/sekvenssikaavio1.png)
 
 #Käyttöohje
